@@ -1,5 +1,5 @@
 package com.eric.dt211c.dittimetableapp;
-
+/*read app designed by eric strong */
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
