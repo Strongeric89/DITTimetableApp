@@ -6,6 +6,19 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+
+
+/*
+ String fileText = ""; //empty string for content from the file
+
+    InputStream is = getAssets().open("timetable.txt");
+    int size = is.available();
+    byte[] buffer = new byte[size];
+    is.read();
+    is.close();
+    fileText = new String(buffer);
+
+ */
 public class ReadApp
 {
 	public String filename;
@@ -14,7 +27,7 @@ public class ReadApp
 	public ReadApp(String filename) throws IOException
 	{
 		this.filename = filename;
-		System.out.println("file: " + this.filename + " has been set up");
+		//System.out.println("file: " + this.filename + " has been set up");
 
 	}// end constructor
 
@@ -26,9 +39,9 @@ public class ReadApp
 
 		while (in.hasNextLine())
 		{
-			String line = (i + 1) + ".\t" + in.nextLine();
+			String line = in.nextLine();
 			lines[i] = line;
-			System.out.println(line);
+
 			i++;
 		}
 		in.close();
