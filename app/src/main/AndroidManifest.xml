@@ -15,6 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TimetableActivity" />
+        <activity android:name=".MyNotesActivity" />
+        <activity android:name=".ViewNotesActivity"></activity>
     </application>
 
 </manifest>

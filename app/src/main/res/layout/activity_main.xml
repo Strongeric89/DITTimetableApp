@@ -12,5 +12,41 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="home screen"
+        android:id="@+id/textView" />
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timetable"
+        android:id="@+id/goToTimetable"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ff0000"
+        android:textColor="#ffffff" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Notes"
+        android:id="@+id/goToMyNotes"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/goToTimetable"
+        android:layout_alignEnd="@+id/goToTimetable"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ff0000"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Notes"
+        android:id="@+id/goToViewNotes"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#ff0000"
+        android:textColor="#ffffff" />
 </RelativeLayout>
