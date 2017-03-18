@@ -31,20 +31,23 @@ public class ReadApp
 
 	}// end constructor
 
-	public void readFile() throws IOException
+	public String readFile() throws IOException
 	{
 		File file = new File(filename);
 		Scanner in = new Scanner(file);
 		int i = 0;
+		String line = "";
 
 		while (in.hasNextLine())
 		{
-			String line = in.nextLine();
-			lines[i] = line;
+			line += in.nextLine() + "\n";
 
-			i++;
 		}
+
+
 		in.close();
+		return line;
+
 	}// end readFile
 
 	public void writeFile(String outputfile, String argument) throws IOException

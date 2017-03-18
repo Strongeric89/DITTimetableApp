@@ -8,12 +8,18 @@ package com.eric.dt211c.dittimetableapp;
 * student current class, next class and times of the next class. Some other features will be included
 *
  */
+
+//use this to debug
+//Log.d("eric", "message");
+import android.os.Environment;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +33,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //This will create the directory structure within the phone - thanks to help from stack overflow
+
+
+        File mediaStorageDir = new File(Environment.getExternalStorageDirectory(), "DITTimetableApp");
+        Log.d("eric", "create directory in " + Environment.getExternalStorageDirectory().getAbsolutePath() );
+
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
+                Log.d("eric", "failed to create directory");
+            }
+        }
+
+
+
 
         //switching to timetable screen and activity
         timetableBtn = (Button) findViewById(R.id.goToTimetable);
