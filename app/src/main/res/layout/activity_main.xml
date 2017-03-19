@@ -1,52 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.andrid.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.eric.dt211c.dittimetableapp.MainActivity">
+    android:orientation="vertical"
+    android:weightSum="3">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="home screen"
-        android:id="@+id/textView" />
 
     <Button
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="Timetable"
         android:id="@+id/goToTimetable"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#ff0000"
-        android:textColor="#ffffff" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Notes"
-        android:id="@+id/goToMyNotes"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/goToTimetable"
-        android:layout_alignEnd="@+id/goToTimetable"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#ff0000"
-        android:textColor="#ffffff" />
+        android:background="@color/green"
+        android:layout_weight="1"
+        android:textSize="30sp"
+        />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Create Note"
+        android:id="@+id/goToMyNotes"
+        android:background="@color/red"
+        android:textColor="@color/white"
+        android:layout_weight="1"
+        android:textSize="30sp"
+
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:text="View Notes"
         android:id="@+id/goToViewNotes"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:background="#ff0000"
-        android:textColor="#ffffff" />
-</RelativeLayout>
+        android:background="@color/yellow"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/creator"
+        android:background="@color/grey"
+        android:text="@string/created"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:padding="10dp"
+        android:gravity="center"
+        />
+
+
+
+
+
+</LinearLayout>

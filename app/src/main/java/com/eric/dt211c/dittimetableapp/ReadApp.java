@@ -59,7 +59,7 @@ public class ReadApp
     public HashMap<Integer, String[]> getContents()
     {
         int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
-        day = day + 1;
+        day = day - 1;
         // convert the number to a string to return the correct version
         String dayOfWeek = new Integer(day).toString();
         switch (day)
@@ -160,7 +160,7 @@ public class ReadApp
 
         } catch (FileNotFoundException e)
         {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 
