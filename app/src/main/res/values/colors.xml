@@ -9,6 +9,9 @@
     <color name="black">#000000</color>
     <color name="grey">#6f839A</color>
     <color name="yellow">#f3ff09</color>
+    <color name="blue">#6600ff</color>
+    <color name="orange">#ff9900</color>
+    <color name="skyBlue">#e6f7ff</color>
 
 
 </resources>

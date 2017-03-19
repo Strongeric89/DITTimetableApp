@@ -12,4 +12,30 @@
     <string name="nownext">\t\tNOW\t\t\t\t\t\t\t\t\t\t\tNEXT</string>
 
 
+    <!-- strings for pop up boxes-->
+    <string name="alert_title"><u> NOTE - TITLE</u></string>
+    <string name="alert_message"><u>This will be the description i put in the message</u></string>
+    <string name="alert_agree">OK</string>
+
+
+    <!--Strings for the form-->
+    <string name="displayTasks">MY NOTES</string>
+    <string name="welcomeMessageForm">Please enter a new Task</string>
+    <string name="titleBox">Title:</string>
+    <string name="descriptionBox">Description:</string>
+    <string name="urgencyBox">Urgency:</string>
+    <string name="titleHint">module</string>
+    <string name="descriptionHint">work to do</string>
+    <string name="urgencyHint">1-High , 2-Med , 3-Low</string>
+    <string name="formButton">Submit task</string>
+
+    <string name="selectOption">Select Urgency</string>
+    <string-array name="SpinnerselectOptions">
+        <item>1 High</item>
+        <item>2 Medium</item>
+        <item>3 Low</item>
+
+    </string-array>
+
+
 </resources>

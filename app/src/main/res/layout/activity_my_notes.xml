@@ -1,12 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/NameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titleBox"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:textSize="30sp" />
+    <EditText
+        android:id="@+id/TaskNameField2"
+
+        android:textSize="30sp"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/titleHint" />
+
+    <TextView
+        android:id="@+id/DesField"
+        android:textColor="@color/green"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/descriptionBox"
+        android:textSize="30sp" />
+    <EditText
+        android:id="@+id/TaskDesField2"
+
+        android:textSize="30sp"
+        android:inputType="text"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/descriptionHint" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="my notes"
-        android:id="@+id/textView" />
+        android:text="@string/urgencyBox"
+
+        android:textColor="@color/green"
+        android:textStyle="bold"
+
+        android:textSize="30sp" />
+
+
+    <Spinner
+        android:id="@+id/TaskSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+
+        android:entries="@array/SpinnerselectOptions" />
+
+
+    <Button
+        android:onClick="onSubmitPressed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@color/red"
+        android:text="@string/formButton"
+        android:textStyle="bold"
+        android:textSize="30sp" />
+
+
 
 </LinearLayout>
