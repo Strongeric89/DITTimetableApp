@@ -19,6 +19,7 @@ import java.util.Scanner;
     fileText = new String(buffer);
 
  */
+//changes
 public class ReadApp
 {
 	public String filename;
