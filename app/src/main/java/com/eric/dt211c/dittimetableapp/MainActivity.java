@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         timetableBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent i = new Intent(view.getContext(),TimetableActivity.class);
+                Intent i = new Intent(view.getContext(),PopulateTimetable.class);
                 startActivity(i);
             }
         });

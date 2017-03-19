@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">DIT Timetable App - Java CA</string>
+    <string name="app_name">DT211C/2 Timetable</string>
+    <string name="created">Designed by Eric Strong DT211c</string>
+    <string name="time">Time: </string>
+    <string name="current">Week: </string>
+    <string name="remaining">Remaining mins: </string>
+    <string name="click">Click Here</string>
+    <string name="classnow">Class Now</string>
+    <string name="roomnow">Room Now</string>
+    <string name="classnext">Class Next</string>
+    <string name="roomnext">Room Next</string>
+    <string name="nownext">\t\tNOW\t\t\t\t\t\t\t\t\t\t\tNEXT</string>
+
+
 </resources>
