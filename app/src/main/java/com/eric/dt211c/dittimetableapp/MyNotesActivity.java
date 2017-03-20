@@ -8,6 +8,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
+import static java.util.Collections.*;
 
 public class MyNotesActivity extends AppCompatActivity {
 
@@ -53,6 +56,8 @@ public class MyNotesActivity extends AppCompatActivity {
 
         Task task = new Task(title, description,urgencyLevel);
         taskList.add(task);
+
+
 
         Toast.makeText(this,"Note Added",
                 Toast.LENGTH_LONG).show();

@@ -6,29 +6,41 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+
 public class ViewNotesActivity extends AppCompatActivity {
+
+
+    //for displayinformation class
+    public static final String TITLE = "title";
+    public static final String DESCRIPTION = "description";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_view_notes);
+
 
         //creating the link to xml
         ListView taskListView =(ListView) findViewById(R.id.task_list);
+        taskListView.setClickable(true);
 
         String [] taskTitles = new String[MyNotesActivity.taskList.size()];  //goes to the MyNotesActivity,java and gets the size of the array list
-
         //populate the array
+
         for(int i=0;i<taskTitles.length;i++){
+
             taskTitles[i]=MyNotesActivity.taskList.get(i).getTitle(); //getting the title part from the list of index i
 
         }//end for
+
+
 
         //setting up arrayAdapter whichi handles the contents of the ListView
         ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
@@ -43,6 +55,43 @@ public class ViewNotesActivity extends AppCompatActivity {
                 recreate();
                 return false;
             }
+        });
+
+
+
+        taskListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l){
+                String title = null;
+                String description = null;
+
+
+                title =MyNotesActivity.taskList.get(i).getTitle();
+                description =MyNotesActivity.taskList.get(i).getDescription();
+
+
+                //THIS IS FOR AN INTENT PAGE
+                Bundle bundle = new Bundle();
+                bundle.putString(TITLE, title);
+                bundle.putString(DESCRIPTION, description);
+
+
+                Intent intentNotes = new Intent(ViewNotesActivity.this,DisplayInformation.class);
+                intentNotes.putExtras(bundle);
+
+                startActivity(intentNotes);
+
+
+
+
+
+
+
+
+
+
+
+            }//onItemClick
+
         });
 
 
@@ -76,6 +125,9 @@ public class ViewNotesActivity extends AppCompatActivity {
                 }).show();
 
     }
+
+
+
 
 
 
