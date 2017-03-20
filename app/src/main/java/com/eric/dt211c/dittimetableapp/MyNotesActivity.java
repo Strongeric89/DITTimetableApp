@@ -2,15 +2,14 @@ package com.eric.dt211c.dittimetableapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
-import static java.util.Collections.*;
 
 public class MyNotesActivity extends AppCompatActivity {
 
@@ -19,6 +18,9 @@ public class MyNotesActivity extends AppCompatActivity {
     private EditText mTitleField;
     private EditText mDescField;
     private Spinner mUgencyField;
+
+    //database
+    private Database db = new Database(this);
 
 
     @Override
@@ -62,11 +64,17 @@ public class MyNotesActivity extends AppCompatActivity {
         Toast.makeText(this,"Note Added",
                 Toast.LENGTH_LONG).show();
 
+        db.storeNotes(taskList);
+        Log.d("eric", taskList.toString() +" added to db ");
+
+
 
         //clear the screen
         mTitleField.setText("");
         mDescField.setText("");
         mUgencyField.setSelection(0);
+
+
 
     }//end on submit pressed
 

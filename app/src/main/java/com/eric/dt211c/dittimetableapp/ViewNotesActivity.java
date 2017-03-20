@@ -79,16 +79,14 @@ public class ViewNotesActivity extends AppCompatActivity {
                 info[0] = title;
                 info[1] = description;
 
-//                Toast.makeText(ViewNotesActivity.this,info[1],
-//                        Toast.LENGTH_LONG).show();
 
-                //THIS IS FOR AN INTENT PAGE
-//                Bundle bundle = new Bundle();
-//                bundle.putString(TITLE, title);
-//                bundle.putString(DESCRIPTION, description);
-//                Intent intentNotes = new Intent(ViewNotesActivity.this,DisplayInformation.class);
-//                intentNotes.putExtras(bundle);
-                //startActivity(intentNotes);
+                AlertDialog.Builder adb = new AlertDialog.Builder(ViewNotesActivity.this);
+                adb.setTitle(info[0]);
+                adb.setMessage(info[1]);
+                adb.setPositiveButton("OK", null);
+                adb.setIcon(R.drawable.classroom3);
+                adb.show();
+
 
             }//onItemClick
 
@@ -100,28 +98,28 @@ public class ViewNotesActivity extends AppCompatActivity {
 
 
 
-    public void formActivity (View view){
-        Intent intent = new Intent(this,ViewNotesActivity.class);
-        createDialogIntent(this, intent);
-    }
-
-
-
-    //for additional info on the charities
-    public static void createDialogIntent(final Context context, final Intent intent) {
-
-        new AlertDialog.Builder(context).setTitle(info[0])
-                .setMessage(info[1])
-                .setIcon(R.drawable.classroom3)
-                .setPositiveButton(R.string.alert_agree, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //this is what happens when Accept is clicked
-                        //context.startActivity(intent);
-                    }
-                }).show();
-
-    }
+//    public void formActivity (View view){
+//        Intent intent = new Intent(this,ViewNotesActivity.class);
+//        createDialogIntent(this, intent);
+//    }
+//
+//
+//
+//    //for additional info on the charities
+//    public static void createDialogIntent(final Context context, final Intent intent) {
+//
+//        new AlertDialog.Builder(context).setTitle(info[0])
+//                .setMessage(info[1])
+//                .setIcon(R.drawable.classroom3)
+//                .setPositiveButton(R.string.alert_agree, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        //this is what happens when Accept is clicked
+//                        //context.startActivity(intent);
+//                    }
+//                }).show();
+//
+//    }
 
 
 
