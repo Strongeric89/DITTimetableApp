@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class ViewNotesActivity extends AppCompatActivity {
@@ -19,6 +20,9 @@ public class ViewNotesActivity extends AppCompatActivity {
     //for displayinformation class
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
+
+    //temp variables
+    public static String[] info = new String[2];
 
 
     @Override
@@ -52,6 +56,8 @@ public class ViewNotesActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int i, long l) {
                 MyNotesActivity.taskList.remove(i);
+                Toast.makeText(ViewNotesActivity.this,"Note Removed",
+                        Toast.LENGTH_LONG).show();
                 recreate();
                 return false;
             }
@@ -64,31 +70,22 @@ public class ViewNotesActivity extends AppCompatActivity {
                 String title = null;
                 String description = null;
 
-
                 title =MyNotesActivity.taskList.get(i).getTitle();
                 description =MyNotesActivity.taskList.get(i).getDescription();
 
+                info[0] = title;
+                info[1] = description;
+
+//                Toast.makeText(ViewNotesActivity.this,info[1],
+//                        Toast.LENGTH_LONG).show();
 
                 //THIS IS FOR AN INTENT PAGE
-                Bundle bundle = new Bundle();
-                bundle.putString(TITLE, title);
-                bundle.putString(DESCRIPTION, description);
-
-
-                Intent intentNotes = new Intent(ViewNotesActivity.this,DisplayInformation.class);
-                intentNotes.putExtras(bundle);
-
-                startActivity(intentNotes);
-
-
-
-
-
-
-
-
-
-
+//                Bundle bundle = new Bundle();
+//                bundle.putString(TITLE, title);
+//                bundle.putString(DESCRIPTION, description);
+//                Intent intentNotes = new Intent(ViewNotesActivity.this,DisplayInformation.class);
+//                intentNotes.putExtras(bundle);
+                //startActivity(intentNotes);
 
             }//onItemClick
 
@@ -98,23 +95,18 @@ public class ViewNotesActivity extends AppCompatActivity {
 
     }//end on create
 
-    public void FormActivity (View view){
+    public void formActivity (View view){
         Intent intent = new Intent(this,ViewNotesActivity.class);
         createDialogIntent(this, intent);
     }
 
 
+
     //for additional info on the charities
     public static void createDialogIntent(final Context context, final Intent intent) {
 
-        String title;
-        String desription;
-        String priority;
-
-
-
-        new AlertDialog.Builder(context).setTitle(R.string.alert_title)
-                .setMessage(R.string.alert_message)
+        new AlertDialog.Builder(context).setTitle(info[0])
+                .setMessage(info[1])
                 .setIcon(R.drawable.classroom3)
                 .setPositiveButton(R.string.alert_agree, new DialogInterface.OnClickListener() {
                     @Override
@@ -125,13 +117,5 @@ public class ViewNotesActivity extends AppCompatActivity {
                 }).show();
 
     }
-
-
-
-
-
-
-
-
 
 }//end class
