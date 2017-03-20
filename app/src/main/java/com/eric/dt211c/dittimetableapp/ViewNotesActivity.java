@@ -3,6 +3,8 @@ package com.eric.dt211c.dittimetableapp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class ViewNotesActivity extends AppCompatActivity {
@@ -25,11 +29,9 @@ public class ViewNotesActivity extends AppCompatActivity {
     public static String[] info = new String[2];
 
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_notes);
-
 
         //creating the link to xml
         ListView taskListView =(ListView) findViewById(R.id.task_list);
@@ -55,8 +57,9 @@ public class ViewNotesActivity extends AppCompatActivity {
         taskListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int i, long l) {
+                String toberemoved = MyNotesActivity.taskList.get(i).getTitle();
                 MyNotesActivity.taskList.remove(i);
-                Toast.makeText(ViewNotesActivity.this,"Note Removed",
+                Toast.makeText(ViewNotesActivity.this,toberemoved + " Note Removed",
                         Toast.LENGTH_LONG).show();
                 recreate();
                 return false;
@@ -95,6 +98,8 @@ public class ViewNotesActivity extends AppCompatActivity {
 
     }//end on create
 
+
+
     public void formActivity (View view){
         Intent intent = new Intent(this,ViewNotesActivity.class);
         createDialogIntent(this, intent);
@@ -117,5 +122,7 @@ public class ViewNotesActivity extends AppCompatActivity {
                 }).show();
 
     }
+
+
 
 }//end class
