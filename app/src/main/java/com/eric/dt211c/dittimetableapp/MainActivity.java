@@ -12,7 +12,9 @@ package com.eric.dt211c.dittimetableapp;
 //use this to debug
 //Log.d("eric", "message");
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private Button viewNotesBtn = null;
     private Button myNotesBtn = null;
     public boolean running = true;
+    public static int numberOfStarts = 0;
+    public static final String STARTS = "number of starts";
 
 
     @Override
@@ -54,9 +58,11 @@ public class MainActivity extends AppCompatActivity {
         //popup when the app is launched.
         //Shared preferences will ensure that this is only run on the first 3 times the application is launched
 
+        SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+        int number = 0;
+        numberOfStarts = sp.getInt(STARTS,number);
 
-
-        if(running){
+        if(numberOfStarts <= 3 || running == true){
 
             AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
 
@@ -82,9 +88,14 @@ public class MainActivity extends AppCompatActivity {
             adb.setIcon(R.drawable.clock1);
             adb.show();
 
+            numberOfStarts ++;
+
 
         }//end running
 
+        SharedPreferences.Editor ed = sp.edit();
+        ed.putInt(STARTS,numberOfStarts);
+        ed.commit();
 
 
 
