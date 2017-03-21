@@ -37,5 +37,11 @@
 
     </string-array>
 
+    <!--Strings for popups-->
+    <string name="titleLabel"> <b>Title:</b> </string>
+    <string name="descriptionLabel"><b>Description:</b></string>
+    <string name="priorityLabel"><b>Priority:</b></string>
+
+
 
 </resources>

@@ -35,6 +35,7 @@ public class ReadApp
 
     public ReadApp(String filename) throws IOException
     {
+
         this.filename = filename;
 
     }// end constructor

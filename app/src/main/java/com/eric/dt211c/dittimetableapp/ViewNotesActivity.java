@@ -8,6 +8,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Vibrator;
 
 import android.view.View;
 import android.widget.AdapterView;
@@ -27,6 +28,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
     //temp variables
     public static String[] info = new String[2];
+    public static int urgency1 = 0;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,12 @@ public class ViewNotesActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int i, long l) {
                 String toberemoved = MyNotesActivity.taskList.get(i).getTitle();
                 MyNotesActivity.taskList.remove(i);
+
+                //make phone vibrate
+                Vibrator v = (Vibrator) ViewNotesActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(500);
+
+
                 Toast.makeText(ViewNotesActivity.this,toberemoved + " Note Removed",
                         Toast.LENGTH_LONG).show();
                 recreate();
@@ -72,17 +80,21 @@ public class ViewNotesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long l){
                 String title = null;
                 String description = null;
+                int urgency = 0;
 
                 title =MyNotesActivity.taskList.get(i).getTitle();
                 description =MyNotesActivity.taskList.get(i).getDescription();
+                urgency = MyNotesActivity.taskList.get(i).getUrgencyLevel();
 
                 info[0] = title;
                 info[1] = description;
-
+                urgency1 = urgency;
 
                 AlertDialog.Builder adb = new AlertDialog.Builder(ViewNotesActivity.this);
-                adb.setTitle(info[0]);
-                adb.setMessage(info[1]);
+
+                adb.setTitle(getString(R.string.titleLabel)+ " " + info[0]);
+
+                adb.setMessage(getString(R.string.descriptionLabel)+ " " + info[0] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1);
                 adb.setPositiveButton("OK", null);
                 adb.setIcon(R.drawable.classroom3);
                 adb.show();
@@ -92,35 +104,6 @@ public class ViewNotesActivity extends AppCompatActivity {
 
         });
 
-
-
     }//end on create
-
-
-
-//    public void formActivity (View view){
-//        Intent intent = new Intent(this,ViewNotesActivity.class);
-//        createDialogIntent(this, intent);
-//    }
-//
-//
-//
-//    //for additional info on the charities
-//    public static void createDialogIntent(final Context context, final Intent intent) {
-//
-//        new AlertDialog.Builder(context).setTitle(info[0])
-//                .setMessage(info[1])
-//                .setIcon(R.drawable.classroom3)
-//                .setPositiveButton(R.string.alert_agree, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        //this is what happens when Accept is clicked
-//                        //context.startActivity(intent);
-//                    }
-//                }).show();
-//
-//    }
-
-
 
 }//end class

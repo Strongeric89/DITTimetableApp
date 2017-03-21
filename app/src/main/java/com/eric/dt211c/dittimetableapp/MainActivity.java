@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.IOException;
@@ -55,7 +56,21 @@ public class MainActivity extends AppCompatActivity {
         timetableBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent i = new Intent(view.getContext(),PopulateTimetable.class);
-                startActivity(i);
+
+                //checks if the file is in the directory before opening up timetable intent
+                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
+                File fileCheck = new File(filePath);
+                if(fileCheck.exists()){
+                    startActivity(i);
+                }//end file checker
+
+                else{
+                    Toast.makeText(MainActivity.this, "Please ensure timetable.txt is in DITTimetableApp directory",
+                            Toast.LENGTH_LONG).show();
+                }
+
+
+
             }
         });
 
