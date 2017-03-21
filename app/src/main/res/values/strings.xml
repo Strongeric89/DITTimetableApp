@@ -41,7 +41,7 @@
     <string name="titleLabel"> <b>Title:</b> </string>
     <string name="descriptionLabel"><b>Description:</b></string>
     <string name="priorityLabel"><b>Priority:</b></string>
-
+    <string name="title_activity_about_page">AboutPage</string>
 
 
 </resources>

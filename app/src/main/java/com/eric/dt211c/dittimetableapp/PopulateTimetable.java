@@ -355,14 +355,33 @@ public class PopulateTimetable extends AppCompatActivity {
 
                     //          class                       room
 
+                    //to work for 12 hour clocks
+                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7){
+
+                        return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
+                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+
+                    }
 
 
+                    //to work for 24 hour clocks
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
                            classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
                 }
 
                 else if (flag == 2)
                 {
+
+                    //to work for 12 hour clocks
+                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7){
+
+                        return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
+                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+
+                    }
+
 
 
                     //          class                       room
@@ -373,6 +392,17 @@ public class PopulateTimetable extends AppCompatActivity {
 
                 else if (flag == 3)
                 {
+                    //to work for 12 hour clocks
+                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7){
+
+                        return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
+                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+
+                    }
+
+
+
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
                             classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
 
@@ -380,12 +410,32 @@ public class PopulateTimetable extends AppCompatActivity {
 
                 else if (flag == 4)
                 {
+                    //to work for 12 hour clocks
+                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7){
+
+                        return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
+                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+
+                    }
+
+
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
                             classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
                 }
 
                 else if (flag == 5)
                 {
+                    //to work for 12 hour clocks
+                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7){
+
+                        return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
+                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+
+                    }
+
+
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
                             classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
 

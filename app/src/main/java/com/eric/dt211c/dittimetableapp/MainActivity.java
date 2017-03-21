@@ -11,8 +11,11 @@ package com.eric.dt211c.dittimetableapp;
 
 //use this to debug
 //Log.d("eric", "message");
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Environment;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Button timetableBtn = null;
     private Button viewNotesBtn = null;
     private Button myNotesBtn = null;
+    public boolean running = true;
 
 
     @Override
@@ -46,6 +50,41 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("eric", "failed to create directory");
             }
         }
+
+        //popup when the app is launched.
+        //Shared preferences will ensure that this is only run on the first 3 times the application is launched
+
+
+
+        if(running){
+
+            AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+
+            adb.setTitle("Welcome to My next Class App");
+
+            adb.setMessage("Thank you for downloading. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
+                    " to view a video on how to format this file?");
+
+            adb.setNegativeButton("No", null);
+
+
+            //this will create an intent to the about page
+            adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    running = false;
+                    //this is what happens when YES is clicked
+                    startActivity(new Intent(MainActivity.this,AboutPage.class));
+
+                }
+            });
+            adb.setIcon(R.drawable.clock1);
+            adb.show();
+
+
+        }//end running
+
 
 
 
