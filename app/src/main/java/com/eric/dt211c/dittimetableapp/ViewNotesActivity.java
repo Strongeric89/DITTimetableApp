@@ -127,7 +127,8 @@ public class ViewNotesActivity extends AppCompatActivity {
 
                 adb.setTitle(getString(R.string.titleLabel)+ " " + info[0]);
 
-                adb.setMessage(getString(R.string.descriptionLabel)+ " " + info[1] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \n" + value );
+                adb.setMessage(getString(R.string.descriptionLabel)+ " " + info[1] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \nDate Created: " + MyNotesActivity.taskList.get(i).getDate()
+                + "\nTime Created: " + MyNotesActivity.taskList.get(i).getTime());
                 adb.setPositiveButton("OK", null);
                 adb.setIcon(R.drawable.classroom3);
                 adb.show();

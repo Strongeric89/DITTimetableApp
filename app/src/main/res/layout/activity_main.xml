@@ -40,10 +40,10 @@
         android:layout_weight="1"
         />
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/creator"
+        android:id="@+id/goToAbout"
         android:background="@color/grey"
         android:text="@string/created"
         android:textColor="@color/white"

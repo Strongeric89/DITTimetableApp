@@ -38,24 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private Button timetableBtn = null;
     private Button viewNotesBtn = null;
     private Button myNotesBtn = null;
+    private Button aboutBtn = null;
     public boolean running = true;
     public static int numberOfStarts = 0;
     public static final String STARTS = "number of starts";
-
-//    //options menu
-//    public boolean onCreateOptionsMenu(Menu menu){
-//        getMenuInflater().inflate(R.menu.navigation,menu);
-//        return true;
-//
-//    }//end onCreateOptionsMenu
-//
-//    public boolean onOptionsItemSelected(MenuItem item){
-//        switch(item.getItemId()){
-//            case R.id.about:{
-//                //call itent to about
-//            }//end case
-//        }
-//    }
 
 
     @Override
@@ -164,6 +150,16 @@ public class MainActivity extends AppCompatActivity {
         viewNotesBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
                 Intent i = new Intent(view.getContext(),ViewNotesActivity.class);
+                startActivity(i);
+            }
+        });
+
+        //switching to About screen and activity
+        aboutBtn = (Button) findViewById(R.id.goToAbout);
+
+        aboutBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                Intent i = new Intent(view.getContext(),AboutPage.class);
                 startActivity(i);
             }
         });
