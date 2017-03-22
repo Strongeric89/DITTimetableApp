@@ -28,6 +28,7 @@ public class Task {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         int hour = Calendar.getInstance().get(Calendar.HOUR);
         int mins = Calendar.getInstance().get(Calendar.MINUTE);
+
         this.time = hour + ":" + mins;
         this.today = day + "/" + (month + 1) + "/" + year ;
 
