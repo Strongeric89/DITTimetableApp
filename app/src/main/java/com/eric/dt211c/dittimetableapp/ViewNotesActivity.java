@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Vibrator;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +23,9 @@ import java.util.Comparator;
 
 
 public class ViewNotesActivity extends AppCompatActivity {
+
+    //database
+    private Database db = new Database(this);
 
 
     //for displayinformation class
@@ -40,6 +44,15 @@ public class ViewNotesActivity extends AppCompatActivity {
         //creating the link to xml
         ListView taskListView =(ListView) findViewById(R.id.task_list);
         taskListView.setClickable(true);
+
+
+
+
+        for(Task t: MyNotesActivity.taskList){
+            Log.d("Eric",String.format("got task: (\n%s, \n%s, \n%s)",t.getTitle(),t.getDescription(),t.getUrgencyLevel()));
+        }
+
+
 
         //sort arrayList
         Collections.sort(MyNotesActivity.taskList, new Comparator<Task>() {
@@ -71,11 +84,18 @@ public class ViewNotesActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int i, long l) {
                 String toberemoved = MyNotesActivity.taskList.get(i).getTitle();
+                String rowtoberemove = MyNotesActivity.taskList.get(i).getDescription();
+
+                db.deleteRow(rowtoberemove);
+
                 MyNotesActivity.taskList.remove(i);
 
                 //make phone vibrate
                 Vibrator v = (Vibrator) ViewNotesActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(500);
+
+
+
 
 
                 Toast.makeText(ViewNotesActivity.this,toberemoved + " Note Removed",

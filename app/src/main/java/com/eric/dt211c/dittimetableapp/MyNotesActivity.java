@@ -66,6 +66,8 @@ public class MyNotesActivity extends AppCompatActivity {
         db.storeNotes(taskList);
 
 
+
+
         //clear the screen
         mTitleField.setText("");
         mDescField.setText("");

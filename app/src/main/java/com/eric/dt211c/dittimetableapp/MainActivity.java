@@ -33,6 +33,8 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Database db = new Database(this);
+
     private Button timetableBtn = null;
     private Button viewNotesBtn = null;
     private Button myNotesBtn = null;
@@ -110,6 +112,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         }//end running
+
+
+        //retrieving saved data from database
+        MyNotesActivity.taskList = db.getTasks();
 
         SharedPreferences.Editor ed = sp.edit();
         ed.putInt(STARTS,numberOfStarts);
