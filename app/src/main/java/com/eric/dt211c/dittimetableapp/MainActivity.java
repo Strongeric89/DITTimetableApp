@@ -20,7 +20,10 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.MenuItemHoverListener;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -36,6 +39,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean running = true;
     public static int numberOfStarts = 0;
     public static final String STARTS = "number of starts";
+
+//    //options menu
+//    public boolean onCreateOptionsMenu(Menu menu){
+//        getMenuInflater().inflate(R.menu.navigation,menu);
+//        return true;
+//
+//    }//end onCreateOptionsMenu
+//
+//    public boolean onOptionsItemSelected(MenuItem item){
+//        switch(item.getItemId()){
+//            case R.id.about:{
+//                //call itent to about
+//            }//end case
+//        }
+//    }
 
 
     @Override

@@ -17,6 +17,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class ViewNotesActivity extends AppCompatActivity {
@@ -28,7 +30,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
     //temp variables
     public static String[] info = new String[2];
-    public static int urgency1 = 0;
+    public static String urgency1 = null;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,15 @@ public class ViewNotesActivity extends AppCompatActivity {
         //creating the link to xml
         ListView taskListView =(ListView) findViewById(R.id.task_list);
         taskListView.setClickable(true);
+
+        //sort arrayList
+        Collections.sort(MyNotesActivity.taskList, new Comparator<Task>() {
+            @Override
+            public int compare(Task t1, Task t2) {
+                int comparing = t1.getValue() - t2.getValue();
+                return comparing;
+            }
+        });
 
         String [] taskTitles = new String[MyNotesActivity.taskList.size()];  //goes to the MyNotesActivity,java and gets the size of the array list
         //populate the array
@@ -80,11 +91,13 @@ public class ViewNotesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int i, long l){
                 String title = null;
                 String description = null;
-                int urgency = 0;
+                String urgency = null;
+                int value;
 
                 title =MyNotesActivity.taskList.get(i).getTitle();
                 description =MyNotesActivity.taskList.get(i).getDescription();
                 urgency = MyNotesActivity.taskList.get(i).getUrgencyLevel();
+                value = MyNotesActivity.taskList.get(i).getValue();
 
                 info[0] = title;
                 info[1] = description;
@@ -94,7 +107,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
                 adb.setTitle(getString(R.string.titleLabel)+ " " + info[0]);
 
-                adb.setMessage(getString(R.string.descriptionLabel)+ " " + info[0] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1);
+                adb.setMessage(getString(R.string.descriptionLabel)+ " " + info[0] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \n" + value );
                 adb.setPositiveButton("OK", null);
                 adb.setIcon(R.drawable.classroom3);
                 adb.show();

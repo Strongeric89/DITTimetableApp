@@ -21,8 +21,6 @@ public class MyNotesActivity extends AppCompatActivity {
 
     //database
     private Database db = new Database(this);
-    public int urgencyLevel=1;
-
 
 
     @Override
@@ -44,48 +42,36 @@ public class MyNotesActivity extends AppCompatActivity {
         String description = mDescField.getText().toString();
         String urgency = mUgencyField.getSelectedItem().toString();
 
+
         if(title.equals("") || description.equals("")){
             Toast.makeText(this, "Please input all information",Toast.LENGTH_LONG).show();
 
             return;
         }// end if
 
-        switch(urgency){
 
-            case "High" : {
-                urgencyLevel = 3;
-
-            }break;
-            case "Medium" : {
-                urgencyLevel = 2;
-
-
-            }break;
-            case "Low": {
-               urgencyLevel = 1;
-
-            }break;
-        }
+        Task task = new Task(title.toUpperCase(), description,urgency);
 
 
 
-        Task task = new Task(title, description,urgencyLevel);
+
+       //add task to arrayList
         taskList.add(task);
 
 
 
-        Toast.makeText(this,"Note Added: " + urgencyLevel,
+        Toast.makeText(this,"Note Added: " + taskList.size(),
                 Toast.LENGTH_LONG).show();
 
         db.storeNotes(taskList);
-        Log.d("eric", urgencyLevel +" added to db ");
-
 
 
         //clear the screen
         mTitleField.setText("");
         mDescField.setText("");
         mUgencyField.setSelection(0);
+
+
 
 
 

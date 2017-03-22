@@ -7,12 +7,21 @@ public class Task {
 
     private String title;
     private String description;
-    private int urgencyLevel;
+    private String urgencyLevel;
+    private int value;
 
-    public Task(String title, String description, int urgencyLevel){
+    public Task(String title, String description, String urgencyLevel){
         this.title = title;
         this.description = description;
         this.urgencyLevel = urgencyLevel;
+
+        char first = urgencyLevel.charAt(0);
+        String c = "" + first;
+        this.value = Integer.parseInt(c);
+
+
+
+
 
     }//end task Constructor
 
@@ -32,13 +41,22 @@ public class Task {
         this.description = description;
     }
 
-    public int getUrgencyLevel() {
+    public String getUrgencyLevel() {
         return urgencyLevel;
     }
 
-    public void setUrgencyLevel(int urgencyLevel) {
+    public int getValue(){
+        return this.value;
+    }
+
+    public void setUrgencyLevel(String urgencyLevel) {
         this.urgencyLevel = urgencyLevel;
     }
+
+
+    public String toString(){
+        return  this.getTitle() + "-" + this.getDescription() + "-" + this.getUrgencyLevel();
+    }//end toString
 
 
 }//end task
