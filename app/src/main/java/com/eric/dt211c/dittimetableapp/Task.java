@@ -23,17 +23,26 @@ public class Task {
         String c = "" + first;
         this.value = Integer.parseInt(c);
 
-        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        int month = Calendar.getInstance().get(Calendar.MONTH);
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-        int hour = Calendar.getInstance().get(Calendar.HOUR);
-        int mins = Calendar.getInstance().get(Calendar.MINUTE);
-
-        this.time = hour + ":" + mins;
-        this.today = day + "/" + (month + 1) + "/" + year ;
 
 
     }//end task Constructor
+
+    //overloaded constructor
+    public Task(String title, String description, String urgencyLevel, String date, String time){
+        this.title = title;
+        this.description = description;
+        this.urgencyLevel = urgencyLevel;
+
+        char first = urgencyLevel.charAt(0);
+        String c = "" + first;
+        this.value = Integer.parseInt(c);
+
+       this.today = date;
+        this.time = time;
+
+
+
+    }
 
     public String getDate(){
 

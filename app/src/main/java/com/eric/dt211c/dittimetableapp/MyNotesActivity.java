@@ -9,6 +9,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
 public class MyNotesActivity extends AppCompatActivity {
@@ -38,6 +39,17 @@ public class MyNotesActivity extends AppCompatActivity {
 
     public void onSubmitPressed(View view){
 
+
+        //for creating date
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int hour = Calendar.getInstance().get(Calendar.HOUR);
+        int mins = Calendar.getInstance().get(Calendar.MINUTE);
+
+        String time = hour + ":" + mins;
+        String today = day + "/" + (month + 1) + "/" + year ;
+
         String title = mTitleField.getText().toString();
         String description = mDescField.getText().toString();
         String urgency = mUgencyField.getSelectedItem().toString();
@@ -50,7 +62,9 @@ public class MyNotesActivity extends AppCompatActivity {
         }// end if
 
 
-        Task task = new Task(title.toUpperCase(), description,urgency);
+        //this is overloaded due to the fact that the database recreates when viewNOtes activity.
+        //there for the time would be incorrect every time
+        Task task = new Task(title.toUpperCase(), description,urgency, today,time);
 
 
 
