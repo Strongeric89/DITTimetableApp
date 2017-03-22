@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         int number = 0;
         numberOfStarts = sp.getInt(STARTS,number);
 
-        if(numberOfStarts <= 3 || running == true){
+        if(numberOfStarts < 1){
 
             AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
 
