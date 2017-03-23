@@ -5,14 +5,14 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created on 20/03/2017.
- * This code was generated with the help of Cave of programming tutorial on SQLLite
- * with the exception of the actual SQL statements
+ * This code was generated with the help of Cave of programming tutorial and Susan McKeevers Database class on SQLLite
+ * with the exception of the actual SQL statements and delete statements
  */
 public class Database extends SQLiteOpenHelper{
 
@@ -21,6 +21,9 @@ public class Database extends SQLiteOpenHelper{
     private static final String COL_NOTE = "NOTE";
     private static final String COL_TITLE = "TITLE";
     private static final String COL_PRIORITY = "PRIORITY";
+    private static final String COL_DATE = "DATE";
+    private static final String COL_TIME = "TIME";
+
 
 
 
@@ -36,7 +39,7 @@ public class Database extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
 
         //create the database
-        String sql = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY,%s TEXT ,%s TEXT, %s TEXT);",TABLE_NAME, COL_ID,COL_TITLE,COL_NOTE,COL_PRIORITY);
+        String sql = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY,%s TEXT ,%s TEXT, %s TEXT);",TABLE_NAME, COL_ID,COL_TITLE,COL_NOTE);
 
         db.execSQL(sql);
 
@@ -85,6 +88,8 @@ public class Database extends SQLiteOpenHelper{
 
         SQLiteDatabase db = getReadableDatabase();
 
+
+
         String sql = String.format("SELECT %s,%s,%s,%s FROM %s ORDER BY %s",COL_ID,COL_TITLE,COL_NOTE,COL_PRIORITY,TABLE_NAME, COL_ID);
 
          Cursor c = db.rawQuery(sql,null);
@@ -94,6 +99,7 @@ public class Database extends SQLiteOpenHelper{
             String title = c.getString(1);
             String description = c.getString(2);
             String priority = c.getString(3);
+
 
             //adding the query results to the arraylist
             tasks.add(new Task(title,description,priority));

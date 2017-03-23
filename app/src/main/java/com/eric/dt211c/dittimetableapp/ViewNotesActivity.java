@@ -1,10 +1,6 @@
 package com.eric.dt211c.dittimetableapp;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,7 +13,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -117,21 +112,20 @@ public class ViewNotesActivity extends AppCompatActivity {
                 title =MyNotesActivity.taskList.get(i).getTitle();
                 description =MyNotesActivity.taskList.get(i).getDescription();
                 urgency = MyNotesActivity.taskList.get(i).getUrgencyLevel();
-                value = MyNotesActivity.taskList.get(i).getValue();
+
 
                 info[0] = title;
                 info[1] = description;
                 urgency1 = urgency;
 
-                AlertDialog.Builder adb = new AlertDialog.Builder(ViewNotesActivity.this);
+                AlertDialog.Builder alert = new AlertDialog.Builder(ViewNotesActivity.this);
 
-                adb.setTitle(getString(R.string.titleLabel)+ " " + info[0]);
+                alert.setTitle(getString(R.string.titleLabel)+ " " + info[0]);
 
-                adb.setMessage(getString(R.string.descriptionLabel)+ " " + info[1] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \nDate Created: " + MyNotesActivity.taskList.get(i).getDate()
-                + "\nTime Created: " + MyNotesActivity.taskList.get(i).getTime());
-                adb.setPositiveButton("OK", null);
-                adb.setIcon(R.drawable.classroom3);
-                adb.show();
+                alert.setMessage(getString(R.string.descriptionLabel)+ " " + info[1] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \nDate Created: " + MyNotesActivity.taskList.get(i).getDate());
+                alert.setPositiveButton("OK", null);
+                alert.setIcon(R.drawable.classroom3);
+                alert.show();
 
 
             }//onItemClick

@@ -14,18 +14,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
-/*read app designed by eric strong */
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Scanner;
-
 public class ReadApp
 {
     public static HashMap<Integer, String[]> classes = new HashMap<Integer, String[]>();

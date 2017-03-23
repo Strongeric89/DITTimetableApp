@@ -20,16 +20,15 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.MenuItemHoverListener;
+
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.File;
-import java.io.IOException;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,11 +51,11 @@ public class MainActivity extends AppCompatActivity {
         //This will create the directory structure within the phone - thanks to help from stack overflow
 
 
-        File mediaStorageDir = new File(Environment.getExternalStorageDirectory(), "DITTimetableApp");
+        File directory1 = new File(Environment.getExternalStorageDirectory(), "DITTimetableApp");
         Log.d("eric", "create directory in " + Environment.getExternalStorageDirectory().getAbsolutePath() );
 
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
+        if (!directory1.exists()) {
+            if (!directory1.mkdirs()) {
                 Log.d("eric", "failed to create directory");
             }
         }
@@ -70,18 +69,18 @@ public class MainActivity extends AppCompatActivity {
 
         if(numberOfStarts < 1){
 
-            AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+            AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
 
-            adb.setTitle("Welcome to My next Class App");
+            alert.setTitle("Welcome to My next Class App");
 
-            adb.setMessage("Thank you for downloading. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
+            alert.setMessage("Thank you for downloading. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
                     " to view a video on how to format this file?");
 
-            adb.setNegativeButton("No", null);
+            alert.setNegativeButton("No", null);
 
 
             //this will create an intent to the about page
-            adb.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -91,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-            adb.setIcon(R.drawable.clock1);
-            adb.show();
+            alert.setIcon(R.drawable.clock1);
+            alert.show();
 
             numberOfStarts ++;
 
@@ -163,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
 
 
 
