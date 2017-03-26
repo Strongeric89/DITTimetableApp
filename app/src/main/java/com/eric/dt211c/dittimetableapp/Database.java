@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +23,11 @@ public class Database extends SQLiteOpenHelper{
     private static final String COL_NOTE = "NOTE";
     private static final String COL_TITLE = "TITLE";
     private static final String COL_PRIORITY = "PRIORITY";
-    private static final String COL_DATE = "DATE";
-    private static final String COL_TIME = "TIME";
-
-
 
 
     public Database(Context context){
         super(context,"mynotes.db",null, 1);
-
-
-
+        
     }//end constructor
 
 
@@ -39,22 +35,27 @@ public class Database extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
 
         //create the database
-        String sql = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY,%s TEXT ,%s TEXT, %s TEXT);",TABLE_NAME, COL_ID,COL_TITLE,COL_NOTE);
-
+        String sql = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY,%s TEXT ,%s TEXT, %s TEXT);",TABLE_NAME, COL_ID,COL_TITLE,COL_NOTE,COL_PRIORITY);
+        Log.d("eric","data base has been created");
         db.execSQL(sql);
 
     }//end onCreate
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }//end onUpgrade
 
+    //the following method will iterate through each task in the array list and add its contents
+    //to the database. This is to persist the data
     public void storeNotes(List<Task> notes){
        SQLiteDatabase db = getWritableDatabase();
 
         db.delete(TABLE_NAME,null,null);
 
+        //the counter is in place to give each task a unique id in the database
         int i =0;
         for(Task t: notes){
             ContentValues v = new ContentValues();
@@ -73,7 +74,12 @@ public class Database extends SQLiteOpenHelper{
         db.close();
     }//end storeNotes
 
+
+
+    //the following method will delete a row from the database, based on the note description.
+    //this was decided as some notes may contain the same title
     public void deleteRow(String name){
+
 
         SQLiteDatabase db = getReadableDatabase();
         String sql = String.format("%s = '%s'", COL_NOTE, name);
@@ -82,12 +88,14 @@ public class Database extends SQLiteOpenHelper{
     }
 
 
+
+
     //retrieving data from database
     public ArrayList<Task> getTasks(){
         ArrayList<Task> tasks = new ArrayList<Task>();
 
-        SQLiteDatabase db = getReadableDatabase();
 
+        SQLiteDatabase db = getReadableDatabase();
 
 
         String sql = String.format("SELECT %s,%s,%s,%s FROM %s ORDER BY %s",COL_ID,COL_TITLE,COL_NOTE,COL_PRIORITY,TABLE_NAME, COL_ID);

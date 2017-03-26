@@ -2,15 +2,17 @@ package com.eric.dt211c.dittimetableapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
-
+/*
+* The following class was created by eric strong
+* This page will create a note (task class) that will be added to the arraylist
+* The idea is to order them by priority and to persist them for later use.
+* */
 
 public class MyNotesActivity extends AppCompatActivity {
 
@@ -37,56 +39,41 @@ public class MyNotesActivity extends AppCompatActivity {
     }//end onCreate
 
 
+    //when the submit button is clicked the fields will be taken from the editviews and
+    //plugged into the task constructor. and then stored in the array list.
     public void onSubmitPressed(View view){
-
-
-
 
         String title = mTitleField.getText().toString();
         String description = mDescField.getText().toString();
         String urgency = mUgencyField.getSelectedItem().toString();
 
 
+        //to ensure that all fields will be populated.
         if(title.equals("") || description.equals("")){
             Toast.makeText(this, "Please input all information",Toast.LENGTH_LONG).show();
 
             return;
         }// end if
 
-        
+
+        //creating the task
         Task task = new Task(title.toUpperCase(), description,urgency);
-
-
-
-
 
        //add task to arrayList
         taskList.add(task);
 
-
-
+        //a toast to notify user task was created and a counter is displayed
         Toast.makeText(this,"Note Added: " + taskList.size(),
                 Toast.LENGTH_LONG).show();
 
+        //notes are also stored in the database
         db.storeNotes(taskList);
 
-
-
-
-        //clear the screen
+        //clear each field for next note
         mTitleField.setText("");
         mDescField.setText("");
         mUgencyField.setSelection(0);
 
-
-
-
-
     }//end on submit pressed
-
-
-
-
-
 
 }//end class

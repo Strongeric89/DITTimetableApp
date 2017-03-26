@@ -7,11 +7,11 @@ package com.eric.dt211c.dittimetableapp;
 * Description: The DIT timetable app will read from a file or database and will indicate to the
 * student current class, next class and times of the next class. Some other features will be included
 *
- */
+*/
 
 //use this to debug
 //Log.d("eric", "message");
-import android.app.Dialog;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -20,37 +20,43 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import android.util.Log;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.io.File;
-
 
 public class MainActivity extends AppCompatActivity {
 
+
+
+    //database to be used when the app launches up to populate the arraylist for persistence
     private Database db = new Database(this);
+
 
     private Button timetableBtn = null;
     private Button viewNotesBtn = null;
     private Button myNotesBtn = null;
     private Button aboutBtn = null;
     public boolean running = true;
+
+    //used to ensure that when the app is launched at least once then the popup dialog box will be
+    //incremented so it doesnt pop up every time. note using shared preferences
     public static int numberOfStarts = 0;
     public static final String STARTS = "number of starts";
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //This will create the directory structure within the phone - thanks to help from stack overflow
 
 
+        //This will create the directory structure within the phone
         File directory1 = new File(Environment.getExternalStorageDirectory(), "DITTimetableApp");
         Log.d("eric", "create directory in " + Environment.getExternalStorageDirectory().getAbsolutePath() );
 
@@ -62,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
         //popup when the app is launched.
         //Shared preferences will ensure that this is only run on the first 3 times the application is launched
-
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
         int number = 0;
         numberOfStarts = sp.getInt(STARTS,number);
@@ -73,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
             alert.setTitle("Welcome to My next Class App");
 
-            alert.setMessage("Thank you for downloading. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
+            alert.setMessage("Thank you for downloading this app. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
                     " to view a video on how to format this file?");
 
             alert.setNegativeButton("No", null);
@@ -93,19 +98,22 @@ public class MainActivity extends AppCompatActivity {
             alert.setIcon(R.drawable.clock1);
             alert.show();
 
+            //incremented so it doenst show every time
             numberOfStarts ++;
 
 
         }//end running
 
 
-        //retrieving saved data from database
-        MyNotesActivity.taskList = db.getTasks();
 
         SharedPreferences.Editor ed = sp.edit();
         ed.putInt(STARTS,numberOfStarts);
         ed.commit();
 
+
+        //retrieving saved data from database
+        //POSSIBLE BUG
+        MyNotesActivity.taskList = db.getTasks();
 
 
 

@@ -3,7 +3,6 @@ package com.eric.dt211c.dittimetableapp;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
-
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,12 +11,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+
+/*
+        The following class was created by eric strong
+        The class is used to populate the timetable fields in the app
+
+
+ */
 
 public class PopulateTimetable extends AppCompatActivity {
 
@@ -69,17 +74,11 @@ public class PopulateTimetable extends AppCompatActivity {
         next1 = (TextView)findViewById(R.id.next2);
         Button url =(Button) findViewById(R.id.click_url);
 
-
-
-
-
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-
-
+                //to ensure the txt file is in the correct location
                 try {
                     ReadApp reader = new ReadApp(path + "/timetable.txt");
                     /*
@@ -94,19 +93,14 @@ public class PopulateTimetable extends AppCompatActivity {
                     String contentToDisplay = reader.readFile();
                     Log.d("eric", contentToDisplay);
 
-
                 }//end try
                 catch (IOException e) {
                     //file not found
                     Toast.makeText(PopulateTimetable.this,"timetable.txt file not found. Please add this file to DITTimetable directory",
-                            Toast.LENGTH_LONG).show();
+                           Toast.LENGTH_LONG).show();
                 }//end catch
 
-
-
-
-
-
+                //used to populate the textviews in the apps UI
                 String toCut=null;
                 String buttonDisplay=null;
                 String text1Display=null;
@@ -117,16 +111,16 @@ public class PopulateTimetable extends AppCompatActivity {
                 String nextDisplay=null;
 
 
+                //getting the day, week, hour, minutes
                 int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
                 Date today = new Date();
-                int hour = (int) today.getHours();
-                int min = (int) today.getMinutes();
+                int hour = today.getHours();
+                int min = today.getMinutes();
                 int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
                 nowDisplay = ""+ hour + ".00";
                 nextDisplay = ""+ (hour+1) + ".00";
                 day = day - 1;
-
 
                 switch (day)
                 {
@@ -162,9 +156,6 @@ public class PopulateTimetable extends AppCompatActivity {
                         week = week - 3;
 
                         buttonDisplay = "Remaining Mins: " + min;
-
-
-
 
                     }
                     break;
@@ -333,6 +324,7 @@ public class PopulateTimetable extends AppCompatActivity {
             * MAIN PART TO BE DISPLAYED
             * */
 
+                //these are the actual display components seen on the UI
                 mButton.setText(buttonDisplay);
                 text1.setText(text1Display);
                 text2.setText(text2Display);
@@ -345,16 +337,12 @@ public class PopulateTimetable extends AppCompatActivity {
             public String populateTimeTable(int flag, int key, int min,int week)
             {
 
-
                 if (flag == 1)
                 {
                     //each field must have 4 indexes - current class - room, next class = room
 
-                    //mapMonday.putAll(classes);
-
 
                     //          class                       room
-
                     //to work for 12 hour clocks
                     if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
                             || key == 6 || key == 7){
@@ -381,7 +369,6 @@ public class PopulateTimetable extends AppCompatActivity {
                                 classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
 
                     }
-
 
 
                     //          class                       room
@@ -448,14 +435,7 @@ public class PopulateTimetable extends AppCompatActivity {
                 }
             }// end
 
-
-
-
         }); // end of the enonimous inner class
-
-
-        //MAIN BODY WORK FOR TIMETABLE APP
-
 
     }//end ONCREATE
 
@@ -505,11 +485,6 @@ public class PopulateTimetable extends AppCompatActivity {
             bgImage.setImageResource(R.drawable.bgsat);
         }//end if
 
-
-
-
-    }
-
-
+    }//end changebackground image
 
 }//end class
