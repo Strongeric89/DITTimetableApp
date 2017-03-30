@@ -110,11 +110,15 @@ public class ViewNotesActivity extends AppCompatActivity {
                 String title = null;
                 String description = null;
                 String urgency = null;
+                String date = null;
+                String time = null;
 
                 //getting the attributes from the arraylist
                 title =MyNotesActivity.taskList.get(i).getTitle();
                 description =MyNotesActivity.taskList.get(i).getDescription();
                 urgency = MyNotesActivity.taskList.get(i).getUrgencyLevel();
+
+
 
 
                 //to display in the alert
@@ -126,7 +130,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
                 alert.setTitle(getString(R.string.titleLabel)+ " " + info[0]);
 
-                alert.setMessage(getString(R.string.descriptionLabel)+ " " + info[1] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \nDate Created: " + MyNotesActivity.taskList.get(i).getDate());
+                alert.setMessage(getString(R.string.descriptionLabel)+ " " + info[1] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \nDate Created: " + MyNotesActivity.taskList.get(i).getDate() + "\nTime Created: " + MyNotesActivity.taskList.get(i).getTime());
                 alert.setPositiveButton("OK", null);
                 alert.setIcon(R.drawable.classroom3);
                 alert.show();

@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /*
 * The following class was created by eric strong
@@ -55,11 +56,25 @@ public class MyNotesActivity extends AppCompatActivity {
             return;
         }// end if
 
+        //get date and time fields
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int month = Calendar.getInstance().get(Calendar.MONTH);
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int hour = Calendar.getInstance().get(Calendar.HOUR);
+        int mins = Calendar.getInstance().get(Calendar.MINUTE);
 
-        //creating the task
-        Task task = new Task(title.toUpperCase(), description,urgency);
+        String time = hour + ":" + mins;
+        String date = day + "/" + (month + 1) + "/" + year ;
 
-       //add task to arrayList
+//        //creating the task
+//        Task task = new Task(title.toUpperCase(), description,urgency);
+
+       // creating task with date and time
+        Task task = new Task(title.toUpperCase(), description,urgency,date,time);
+
+
+
+        //add task to arrayList
         taskList.add(task);
 
         //a toast to notify user task was created and a counter is displayed
