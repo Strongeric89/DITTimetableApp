@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -29,13 +30,7 @@ public class PopulateTimetable extends AppCompatActivity {
     //for background image
     private ImageView bgImage = null;
 
-    public static HashMap <Integer,String[]> classes = new HashMap<Integer,String[]>();
-    public String[] namesOfDays =
-            { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
-
-    //MAIN BUTTON CLICK
-
-    public ArrayList<String[]> list = new ArrayList<String[]>();
+    public static HashMap<Integer, String[]> classes = new HashMap<Integer, String[]>();
 
 
     Button mButton = null;
@@ -62,17 +57,17 @@ public class PopulateTimetable extends AppCompatActivity {
             CHANGE BACKGROUND IMAGE DEPENDING ON WHAT DAY IT IS
 
          */
-        bgImage = (ImageView)findViewById(R.id.mainbg);
+        bgImage = (ImageView) findViewById(R.id.mainbg);
         changeBackgroundImage();
 
-        mButton = (Button)findViewById(R.id.click_main);
-        text1 = (TextView)findViewById(R.id.currentclass);
-        text2 = (TextView)findViewById(R.id.currentroom);
-        text3 = (TextView)findViewById(R.id.nextclass);
-        text4 = (TextView)findViewById(R.id.roomnext);
-        now1 = (TextView)findViewById(R.id.now2);
-        next1 = (TextView)findViewById(R.id.next2);
-        Button url =(Button) findViewById(R.id.click_url);
+        mButton = (Button) findViewById(R.id.click_main);
+        text1 = (TextView) findViewById(R.id.currentclass);
+        text2 = (TextView) findViewById(R.id.currentroom);
+        text3 = (TextView) findViewById(R.id.nextclass);
+        text4 = (TextView) findViewById(R.id.roomnext);
+        now1 = (TextView) findViewById(R.id.now2);
+        next1 = (TextView) findViewById(R.id.next2);
+        //Button url =(Button) findViewById(R.id.click_url);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,19 +91,19 @@ public class PopulateTimetable extends AppCompatActivity {
                 }//end try
                 catch (IOException e) {
                     //file not found
-                    Toast.makeText(PopulateTimetable.this,"timetable.txt file not found. Please add this file to DITTimetable directory",
-                           Toast.LENGTH_LONG).show();
+                    Toast.makeText(PopulateTimetable.this, "timetable.txt file not found. Please add this file to DITTimetable directory",
+                            Toast.LENGTH_LONG).show();
                 }//end catch
 
                 //used to populate the textviews in the apps UI
-                String toCut=null;
-                String buttonDisplay=null;
-                String text1Display=null;
-                String text2Display=null;
-                String text3Display=null;
-                String text4Display=null;
-                String nowDisplay=null;
-                String nextDisplay=null;
+                String toCut = null;
+                String buttonDisplay = null;
+                String text1Display = null;
+                String text2Display = null;
+                String text3Display = null;
+                String text4Display = null;
+                String nowDisplay = null;
+                String nextDisplay = null;
 
 
                 //getting the day, week, hour, minutes
@@ -116,81 +111,70 @@ public class PopulateTimetable extends AppCompatActivity {
                 Date today = new Date();
                 int hour = today.getHours();
                 int min = today.getMinutes();
-                int week = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
 
-                nowDisplay = ""+ hour + ".00";
-                nextDisplay = ""+ (hour+1) + ".00";
+                nowDisplay = "" + hour + ".00";
+                nextDisplay = "" + (hour + 1) + ".00";
                 day = day - 1;
 
-                switch (day)
-                {
-                    case 1:
-                    {
+                switch (day) {
+                    case 1: {
                         // monday
                         // call mondayMap
 
-                        if (hour < 8 || hour >= 18)
-                        {
+                        if (hour < 8 || hour >= 18) {
                             buttonDisplay = "no classes";
                             break;
                         }
 
-                        toCut = populateTimeTable(day, hour,min,week);
+                        toCut = populateTimeTable(day, hour);
 
                         String words[] = new String[4];
-                        int i=0;
-                        for (String word: toCut.split("-")) {
-                            word = word.replace('_',' ');
+                        int i = 0;
+                        for (String word : toCut.split("-")) {
+                            word = word.replace('_', ' ');
 
                             words[i] = word;
                             i++;
                         }
-                        text1Display= words[0];
-                        text2Display= words[1];
-                        text3Display= words[2];
-                        text4Display= words[3];
+                        text1Display = words[0];
+                        text2Display = words[1];
+                        text3Display = words[2];
+                        text4Display = words[3];
 
                         //to get the remaining minutes per class
                         min = Math.abs(min - 60);
-                        // off set of week 4, we start back in 4th week of the year
-                        week = week - 3;
-
                         buttonDisplay = "Remaining Mins: " + min;
 
                     }
                     break;
 
-                    case 2:
-                    {
+                    case 2: {
                         // tuesday
                         // call tueMap
 
-                        if (hour < 8 || hour >= 18)
-                        {
+                        if (hour < 8 || hour >= 18) {
 
                             buttonDisplay = "no classes";
                             break;
                         }
 
-                        toCut = populateTimeTable(day, hour,min,week);
+                        toCut = populateTimeTable(day, hour);
 
                         String words[] = new String[4];
-                        int i=0;
-                        for (String word: toCut.split("-")) {
-                            word = word.replace('_',' ');
+                        int i = 0;
+                        for (String word : toCut.split("-")) {
+                            word = word.replace('_', ' ');
 
                             words[i] = word;
                             i++;
                         }
-                        text1Display= words[0];
-                        text2Display= words[1];
-                        text3Display= words[2];
-                        text4Display= words[3];
+                        text1Display = words[0];
+                        text2Display = words[1];
+                        text3Display = words[2];
+                        text4Display = words[3];
 
                         //to get the remaining minutes per class
                         min = Math.abs(min - 60);
-                        // off set of week 4, we start back in 4th week of the year
-                        week = week - 3;
 
                         buttonDisplay = "Remaining Mins: " + min;
 
@@ -198,105 +182,93 @@ public class PopulateTimetable extends AppCompatActivity {
                     }
                     break;
 
-                    case 3:
-                    {
+                    case 3: {
                         // wedneday
                         // call wedMap
 
-                        if (hour < 9 || hour >= 18)
-                        {
+                        if (hour < 9 || hour >= 18) {
                             buttonDisplay = "no classes";
 
                             break;
                         }
-                        toCut = populateTimeTable(day, hour,min,week);
+                        toCut = populateTimeTable(day, hour);
 
                         String words[] = new String[4];
-                        int i=0;
-                        for (String word: toCut.split("-")) {
-                            word = word.replace('_',' ');
+                        int i = 0;
+                        for (String word : toCut.split("-")) {
+                            word = word.replace('_', ' ');
                             words[i] = word;
                             i++;
                         }
-                        text1Display= words[0];
-                        text2Display= words[1];
-                        text3Display= words[2];
-                        text4Display= words[3];
+                        text1Display = words[0];
+                        text2Display = words[1];
+                        text3Display = words[2];
+                        text4Display = words[3];
 
                         //to get the remaining minutes per class
                         min = Math.abs(min - 60);
-                        // off set of week 4, we start back in 4th week of the year
-                        week = week - 3;
 
                         buttonDisplay = "Remaining Mins: " + min;
 
                     }
                     break;
 
-                    case 4:
-                    {
+                    case 4: {
                         // thursday
                         // call thurMap
 
-                        if (hour < 8 || hour >= 18)
-                        {
+                        if (hour < 8 || hour >= 18) {
                             buttonDisplay = "no classes";
 
                             break;
                         }
-                        toCut = populateTimeTable(day, hour,min,week);
+                        toCut = populateTimeTable(day, hour);
 
                         String words[] = new String[4];
-                        int i=0;
-                        for (String word: toCut.split("-")) {
-                            word = word.replace('_',' ');
+                        int i = 0;
+                        for (String word : toCut.split("-")) {
+                            word = word.replace('_', ' ');
                             words[i] = word;
                             i++;
                         }
-                        text1Display= words[0];
-                        text2Display= words[1];
-                        text3Display= words[2];
-                        text4Display= words[3];
+                        text1Display = words[0];
+                        text2Display = words[1];
+                        text3Display = words[2];
+                        text4Display = words[3];
 
                         //to get the remaining minutes per class
                         min = Math.abs(min - 60);
-                        // off set of week 4, we start back in 4th week of the year
-                        week = week - 3;
 
                         buttonDisplay = "Remaining Mins: " + min;
 
                     }
                     break;
 
-                    case 5:
-                    {
+                    case 5: {
                         // friday
                         // call friMap
 
-                        if (hour < 8 || hour >= 18)
-                        {
+                        if (hour < 8 || hour >= 18) {
                             buttonDisplay = "no classes";
 
                             break;
                         }
-                        toCut = populateTimeTable(day, hour,min,week);
+                        toCut = populateTimeTable(day, hour);
 
                         String words[] = new String[4];
-                        int i=0;
-                        for (String word: toCut.split("-")) {
-                            word = word.replace('_',' ');
+                        int i = 0;
+                        for (String word : toCut.split("-")) {
+                            word = word.replace('_', ' ');
                             words[i] = word;
                             i++;
                         }
-                        text1Display= words[0];
-                        text2Display= words[1];
-                        text3Display= words[2];
-                        text4Display= words[3];
+                        text1Display = words[0];
+                        text2Display = words[1];
+                        text3Display = words[2];
+                        text4Display = words[3];
 
                         //to get the remaining minutes per class
                         min = Math.abs(min - 60);
-                        // off set of week 4, we start back in 4th week of the year
-                        week = week - 3;
 
                         buttonDisplay = "Remaining Mins: " + min;
 
@@ -304,15 +276,14 @@ public class PopulateTimetable extends AppCompatActivity {
                     }
                     break;
 
-                    default:
-                    {
+                    default: {
 
 
                         buttonDisplay = "No Classes";
-                        text1Display="no classes";
-                        text2Display="no classes";
-                        text3Display="no classes";
-                        text4Display="no classes";
+                        text1Display = "no classes";
+                        text2Display = "no classes";
+                        text3Display = "no classes";
+                        text4Display = "no classes";
 
 
                     }
@@ -334,102 +305,84 @@ public class PopulateTimetable extends AppCompatActivity {
                 now1.setText(nowDisplay); // TIME MEXT
             }//end ONCLICK
 
-            public String populateTimeTable(int flag, int key, int min,int week)
-            {
+            public String populateTimeTable(int flag, int key) {
 
-                if (flag == 1)
-                {
+                if (flag == 1) {
                     //each field must have 4 indexes - current class - room, next class = room
 
 
                     //          class                       room
                     //to work for 12 hour clocks
-                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
-                            || key == 6 || key == 7){
+                    if (key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7) {
 
                         return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+                                classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
 
                     }
 
 
                     //to work for 24 hour clocks
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                           classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
-                }
-
-                else if (flag == 2)
-                {
+                            classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
+                } else if (flag == 2) {
 
                     //to work for 12 hour clocks
-                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
-                            || key == 6 || key == 7){
+                    if (key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7) {
 
                         return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+                                classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
 
                     }
 
 
                     //          class                       room
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                            classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+                            classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
 
-                }
-
-                else if (flag == 3)
-                {
+                } else if (flag == 3) {
                     //to work for 12 hour clocks
-                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
-                            || key == 6 || key == 7){
+                    if (key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7) {
 
                         return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
-
-                    }
-
-
-
-                    return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                            classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
-
-                }
-
-                else if (flag == 4)
-                {
-                    //to work for 12 hour clocks
-                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
-                            || key == 6 || key == 7){
-
-                        return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+                                classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
 
                     }
 
 
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                            classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
-                }
+                            classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
 
-                else if (flag == 5)
-                {
+                } else if (flag == 4) {
                     //to work for 12 hour clocks
-                    if(key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
-                            || key == 6 || key == 7){
+                    if (key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7) {
 
                         return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                                classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+                                classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
 
                     }
 
 
                     return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
-                            classes.get(key+ 1)[0] + "-" + classes.get(key + 1)[1];
+                            classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
+                } else if (flag == 5) {
+                    //to work for 12 hour clocks
+                    if (key == 8 || key == 9 || key == 10 || key == 12 || key == 1 || key == 2 || key == 3 || key == 4 || key == 5
+                            || key == 6 || key == 7) {
 
-                }
+                        return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
+                                classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
 
-                else
-                {
+                    }
+
+
+                    return classes.get(key)[0] + "-" + classes.get(key)[1] + "-" +
+                            classes.get(key + 1)[0] + "-" + classes.get(key + 1)[1];
+
+                } else {
 
                     return "No Classes";
                 }
@@ -441,47 +394,46 @@ public class PopulateTimetable extends AppCompatActivity {
 
     //ADDITIONAL FUNCTIONS
     //external url
-    public void onurlClick(View view){
+    public void onurlClick(View view) {
         goToUrl("http://www.dit.ie/timetables");
     }
 
-    private void goToUrl (String url) {
+    private void goToUrl(String url) {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
 
-    public void changeBackgroundImage(){
+    public void changeBackgroundImage() {
 
         int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
 
 
-
-        if(day == 1){
+        if (day == 1) {
             bgImage.setImageResource(R.drawable.bgsun);
         }//end if
 
-        if(day == 2){
+        if (day == 2) {
             bgImage.setImageResource(R.drawable.bgmon);
         }//end if
 
-        if(day == 3){
+        if (day == 3) {
             bgImage.setImageResource(R.drawable.bgtue);
         }//end if
 
-        if(day == 4){
+        if (day == 4) {
             bgImage.setImageResource(R.drawable.bgwed);
         }//end if
 
-        if(day == 5){
+        if (day == 5) {
             bgImage.setImageResource(R.drawable.bgthur);
         }//end if
 
-        if(day == 6){
+        if (day == 6) {
             bgImage.setImageResource(R.drawable.bgfri);
         }//end if
 
-        if(day == 7){
+        if (day == 7) {
             bgImage.setImageResource(R.drawable.bgsat);
         }//end if
 

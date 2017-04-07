@@ -3,23 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:weightSum="4"
 
-    android:background="@color/white">
+    android:weightSum="4">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="My Notes"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="50dp"
         android:background="@color/yellow"
+        android:gravity="center"
+        android:text="My Notes"
         android:textColor="@color/red"
-        />
-
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
 
     <ListView
@@ -27,26 +25,24 @@
         android:id="@+id/task_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:clickable="true"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:clickable="true"
-        android:layout_weight="4"
-
-
 
 
         />
+
     <TextView
-        android:layout_marginTop="5dp"
+        android:id="@+id/creator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/creator"
+        android:layout_marginTop="5dp"
         android:background="@color/grey"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="@string/created"
         android:textColor="@color/white"
-        android:textSize="10sp"
-        android:padding="10dp"
-        android:gravity="center"
-        />
+        android:textSize="10sp" />
 
 </LinearLayout>

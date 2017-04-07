@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -26,7 +27,7 @@ public class ViewNotesActivity extends AppCompatActivity {
     private Database db = new Database(this);
 
 
-//    //for displayinformation class
+    //for displayinformation class
     public static final String TITLE = "title";
     public static final String DESCRIPTION = "description";
 
@@ -40,14 +41,13 @@ public class ViewNotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_notes);
 
         //creating the link to xml
-        ListView taskListView =(ListView) findViewById(R.id.task_list);
+        ListView taskListView = (ListView) findViewById(R.id.task_list);
         taskListView.setClickable(true);
 
         //for debug reasons to ensure the database has recieved good data
-        for(Task t: MyNotesActivity.taskList){
-            Log.d("Eric",String.format("got task: (\n%s, \n%s, \n%s)",t.getTitle(),t.getDescription(),t.getUrgencyLevel()));
+        for (Task t : MyNotesActivity.taskList) {
+            Log.d("Eric", String.format("got task: (\n%s, \n%s, \n%s)", t.getTitle(), t.getDescription(), t.getUrgencyLevel()));
         }
-
 
 
         //sort arrayList
@@ -61,19 +61,18 @@ public class ViewNotesActivity extends AppCompatActivity {
         });
 
         //displaying the titles in the listview component
-        String [] taskTitles = new String[MyNotesActivity.taskList.size()];  //goes to the MyNotesActivity,java and gets the size of the array list
+        String[] taskTitles = new String[MyNotesActivity.taskList.size()];  //goes to the MyNotesActivity,java and gets the size of the array list
         //populate the array
 
-        for(int i=0;i<taskTitles.length;i++){
+        for (int i = 0; i < taskTitles.length; i++) {
 
-            taskTitles[i]=MyNotesActivity.taskList.get(i).getTitle(); //getting the title part from the list of index i
+            taskTitles[i] = MyNotesActivity.taskList.get(i).getTitle(); //getting the title part from the list of index i
 
         }//end for
 
 
-
         //setting up arrayAdapter which handles the contents of the ListView
-        ArrayAdapter adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
 
         taskListView.setAdapter(adapter);
 
@@ -95,7 +94,7 @@ public class ViewNotesActivity extends AppCompatActivity {
                 v.vibrate(500);
 
                 //toast notification to tell user not has been removed
-                Toast.makeText(ViewNotesActivity.this,toberemoved + " Note Removed",
+                Toast.makeText(ViewNotesActivity.this, toberemoved + " Note Removed",
                         Toast.LENGTH_LONG).show();
                 recreate();
                 return false;
@@ -103,23 +102,18 @@ public class ViewNotesActivity extends AppCompatActivity {
         });
 
 
-
         //when list view item is clicked an alert intent is called to display contents of the tasks stored
-        taskListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            public void onItemClick(AdapterView<?> parent, View view, int i, long l){
+        taskListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
                 String title = null;
                 String description = null;
                 String urgency = null;
-                String date = null;
-                String time = null;
+
 
                 //getting the attributes from the arraylist
-                title =MyNotesActivity.taskList.get(i).getTitle();
-                description =MyNotesActivity.taskList.get(i).getDescription();
+                title = MyNotesActivity.taskList.get(i).getTitle();
+                description = MyNotesActivity.taskList.get(i).getDescription();
                 urgency = MyNotesActivity.taskList.get(i).getUrgencyLevel();
-
-
-
 
                 //to display in the alert
                 info[0] = title;
@@ -128,9 +122,9 @@ public class ViewNotesActivity extends AppCompatActivity {
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(ViewNotesActivity.this);
 
-                alert.setTitle(getString(R.string.titleLabel)+ " " + info[0]);
+                alert.setTitle(getString(R.string.titleLabel) + " " + info[0]);
 
-                alert.setMessage(getString(R.string.descriptionLabel)+ " " + info[1] + "\n" + getString(R.string.priorityLabel)+ " " + urgency1 + " \nDate Created: " + MyNotesActivity.taskList.get(i).getDate() + "\nTime Created: " + MyNotesActivity.taskList.get(i).getTime());
+                alert.setMessage(getString(R.string.descriptionLabel) + " " + info[1] + "\n" + getString(R.string.priorityLabel) + " " + urgency1 + " \nDate Created: " + MyNotesActivity.taskList.get(i).getDate() + "\nTime Created: " + MyNotesActivity.taskList.get(i).getTime());
                 alert.setPositiveButton("OK", null);
                 alert.setIcon(R.drawable.classroom3);
                 alert.show();

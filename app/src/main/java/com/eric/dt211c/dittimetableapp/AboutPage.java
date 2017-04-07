@@ -36,16 +36,16 @@ public class AboutPage extends AppCompatActivity {
 
             //put in my email here
             public void onClick(View view) {
-              sendContact();
+                sendContact();
 
             }
         });
 
     }
 
-        //The following code will create an intent to create an email.
-    public void sendContact(){
-        String[] targetEmail = new String[] {"strong.erik@gmail.com"};
+    //The following code will create an intent to create an email.
+    public void sendContact() {
+        String[] targetEmail = new String[]{"strong.erik@gmail.com"};
         String mSubject = "Enquiry about the Timetable App";
         String mMessage = "FAO: Eric,";
 
@@ -65,11 +65,11 @@ public class AboutPage extends AppCompatActivity {
     }//end sendContact
 
     //the following code will create an intent to the browser to go to the said website
-    public void onurlClick(View view){
+    public void onurlClick(View view) {
         goToUrl("https://youtu.be/qybF8hj87Dc");
     }
 
-    private void goToUrl (String url) {
+    private void goToUrl(String url) {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);

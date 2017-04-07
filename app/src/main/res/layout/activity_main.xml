@@ -8,48 +8,45 @@
 
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Timetable"
         android:id="@+id/goToTimetable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:background="@color/green"
-        android:layout_weight="1"
-        android:textSize="30sp"
-        />
+        android:text="Timetable"
+        android:textSize="30sp" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Create Note"
         android:id="@+id/goToMyNotes"
-        android:background="@color/red"
-        android:textColor="@color/white"
-        android:layout_weight="1"
-        android:textSize="30sp"
-
-        />
-
-    <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="View Notes"
-        android:id="@+id/goToViewNotes"
-        android:background="@color/yellow"
-        android:textColor="@color/black"
-        android:textSize="30sp"
         android:layout_weight="1"
+        android:background="@color/red"
+        android:text="Create Note"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+
         />
 
     <Button
+        android:id="@+id/goToViewNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/yellow"
+        android:text="View Notes"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/goToAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/goToAbout"
         android:background="@color/grey"
+        android:gravity="center"
+        android:padding="10dp"
         android:text="@string/created"
         android:textColor="@color/white"
-        android:textSize="10sp"
-        android:padding="10dp"
-        android:gravity="center"
-        />
+        android:textSize="10sp" />
 
 </LinearLayout>

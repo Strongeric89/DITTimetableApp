@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -33,7 +34,7 @@ public class MyNotesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_notes);
 
         //Identifing the Id's from the activity_form xml
-        mTitleField = (EditText)findViewById(R.id.TaskNameField2);
+        mTitleField = (EditText) findViewById(R.id.TaskNameField2);
         mDescField = (EditText) findViewById(R.id.TaskDesField2);
         mUgencyField = (Spinner) findViewById(R.id.TaskSpinner);
 
@@ -42,7 +43,7 @@ public class MyNotesActivity extends AppCompatActivity {
 
     //when the submit button is clicked the fields will be taken from the editviews and
     //plugged into the task constructor. and then stored in the array list.
-    public void onSubmitPressed(View view){
+    public void onSubmitPressed(View view) {
 
         String title = mTitleField.getText().toString();
         String description = mDescField.getText().toString();
@@ -50,8 +51,8 @@ public class MyNotesActivity extends AppCompatActivity {
 
 
         //to ensure that all fields will be populated.
-        if(title.equals("") || description.equals("")){
-            Toast.makeText(this, "Please input all information",Toast.LENGTH_LONG).show();
+        if (title.equals("") || description.equals("")) {
+            Toast.makeText(this, "Please input all information", Toast.LENGTH_LONG).show();
 
             return;
         }// end if
@@ -64,21 +65,16 @@ public class MyNotesActivity extends AppCompatActivity {
         int mins = Calendar.getInstance().get(Calendar.MINUTE);
 
         String time = hour + ":" + mins;
-        String date = day + "/" + (month + 1) + "/" + year ;
+        String date = day + "/" + (month + 1) + "/" + year;
 
-//        //creating the task
-//        Task task = new Task(title.toUpperCase(), description,urgency);
-
-       // creating task with date and time
-        Task task = new Task(title.toUpperCase(), description,urgency,date,time);
-
-
+        // creating task
+        Task task = new Task(title.toUpperCase(), description, urgency, date, time);
 
         //add task to arrayList
         taskList.add(task);
 
         //a toast to notify user task was created and a counter is displayed
-        Toast.makeText(this,"Note Added: " + taskList.size(),
+        Toast.makeText(this, "Note Added: " + taskList.size(),
                 Toast.LENGTH_LONG).show();
 
         //notes are also stored in the database

@@ -1,51 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <ImageView
-        android:layout_alignParentBottom="true"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
         android:id="@+id/mainbg"
-        android:src="@color/skyBlue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:scaleType="fitXY"
+        android:src="@color/skyBlue"
 
         />
 
     <RelativeLayout
-        android:layout_marginRight="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_above="@id/bottom"
         android:layout_width="match_parent"
         android:layout_height="90dp"
+        android:layout_above="@id/bottom"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
         android:background="@color/white">
+
         <Button
-            android:onClick="onurlClick"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:id="@+id/click_url"
-            android:text="View Timetable"
-            android:background="@color/grey"
-            android:textColor="@color/white"
-            android:padding="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_above="@+id/click_main"
+            android:background="@color/grey"
+            android:onClick="onurlClick"
+            android:padding="0dp"
+            android:text="View Timetable"
+            android:textColor="@color/white"
 
             />
 
 
         <Button
 
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
             android:id="@+id/click_main"
-            android:text="@string/click"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
 
             android:background="@color/red"
-            android:textColor="@color/white"
             android:padding="0dp"
-            android:layout_alignParentBottom="true"/>
+            android:text="@string/click"
+            android:textColor="@color/white" />
 
         <View
             android:layout_width="fill_parent"
@@ -81,22 +82,20 @@
         <!--/>-->
 
 
-
-
     </RelativeLayout>
 
 
     <LinearLayout
         android:id="@+id/bottom"
-        android:layout_marginRight="2dp"
-        android:layout_marginLeft="2dp"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-
-        android:weightSum="32"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:background="@color/green">
+        android:layout_marginLeft="2dp"
+
+        android:layout_marginRight="2dp"
+        android:background="@color/green"
+        android:orientation="vertical"
+        android:weightSum="32">
 
         <LinearLayout
 
@@ -112,27 +111,26 @@
 
             <TextView
 
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="NOW"
                 android:id="@+id/now2"
-                android:gravity="center"
-                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="2.5"
+                android:gravity="center"
+                android:text="NOW"
                 android:textColor="@color/red"
+                android:textSize="15sp"
 
                 />
 
             <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="NEXT CLASS"
                 android:id="@+id/next2"
-                android:gravity="center"
-                android:textSize="15sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="2.5"
+                android:gravity="center"
+                android:text="NEXT CLASS"
                 android:textColor="@color/red"
-                />
+                android:textSize="15sp" />
 
 
         </LinearLayout>
@@ -141,7 +139,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"/>
+            android:layout_weight="2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -153,67 +151,64 @@
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
 
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
-                android:src="@drawable/clock1"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/clock1" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
                 android:id="@+id/currentclass"
-                android:layout_weight="7"
-                android:text="@string/classnow"
-                android:textSize="15dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="7"
                 android:gravity="center"
-                />
+                android:text="@string/classnow"
+                android:textSize="15dp" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
-                android:src="@drawable/clock1"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/clock1" />
 
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
             <TextView
+                android:id="@+id/nextclass"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/nextclass"
-                android:layout_weight="7"
-                android:text="@string/classnext"
-                android:textSize="15dp"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="7"
                 android:gravity="center"
-                />
+                android:text="@string/classnext"
+                android:textSize="15dp" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
-
+                android:layout_weight="1" />
 
 
         </LinearLayout>
@@ -221,7 +216,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4"/>
+            android:layout_weight="4" />
 
 
         <LinearLayout
@@ -232,68 +227,63 @@
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
-                android:src="@drawable/classroom2"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/classroom2" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
                 android:id="@+id/currentroom"
-                android:layout_weight="7"
-                android:text="@string/roomnow"
-                android:textSize="15dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="7"
                 android:gravity="center"
-                />
+                android:text="@string/roomnow"
+                android:textSize="15dp" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
 
             <ImageView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
-                android:src="@drawable/classroom3"
-                android:scaleType="fitCenter"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/classroom3" />
 
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
             <TextView
+                android:id="@+id/roomnext"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/roomnext"
-                android:layout_weight="7"
-                android:text="@string/roomnext"
-                android:textSize="15dp"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="7"
                 android:gravity="center"
-                />
+                android:text="@string/roomnext"
+                android:textSize="15dp" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
-
-
-
+                android:layout_weight="1" />
 
 
         </LinearLayout>
@@ -301,27 +291,24 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_weight="1" />
 
         <TextView
-            android:layout_marginTop="5dp"
+            android:id="@+id/creator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/creator"
+            android:layout_below="@id/nextclass"
+            android:layout_marginTop="5dp"
             android:background="@color/grey"
+            android:gravity="center"
+            android:padding="10dp"
             android:text="@string/created"
             android:textColor="@color/white"
-            android:textSize="10sp"
-            android:padding="10dp"
-            android:gravity="center"
 
-            android:layout_below="@id/nextclass"/>
-
+            android:textSize="10sp" />
 
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

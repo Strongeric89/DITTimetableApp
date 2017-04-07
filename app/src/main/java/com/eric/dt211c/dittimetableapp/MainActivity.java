@@ -9,8 +9,6 @@ package com.eric.dt211c.dittimetableapp;
 *
 */
 
-//use this to debug
-//Log.d("eric", "message");
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,16 +22,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
 
-
     //database to be used when the app launches up to populate the arraylist for persistence
     private Database db = new Database(this);
-
-
     private Button timetableBtn = null;
     private Button viewNotesBtn = null;
     private Button myNotesBtn = null;
@@ -46,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String STARTS = "number of starts";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -55,10 +50,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         //This will create the directory structure within the phone
         File directory1 = new File(Environment.getExternalStorageDirectory(), "DITTimetableApp");
-        Log.d("eric", "create directory in " + Environment.getExternalStorageDirectory().getAbsolutePath() );
+        Log.d("eric", "create directory in " + Environment.getExternalStorageDirectory().getAbsolutePath());
 
         if (!directory1.exists()) {
             if (!directory1.mkdirs()) {
@@ -70,15 +64,15 @@ public class MainActivity extends AppCompatActivity {
         //Shared preferences will ensure that this is only run on the first 3 times the application is launched
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
         int number = 0;
-        numberOfStarts = sp.getInt(STARTS,number);
+        numberOfStarts = sp.getInt(STARTS, number);
 
-        if(numberOfStarts < 1){
+        if (numberOfStarts < 1) {
 
             AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
 
             alert.setTitle("Welcome to My next Class App");
 
-            alert.setMessage("Thank you for downloading this app. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
+            alert.setMessage("1. Go To Settings > Apps > My Next Class > Permissions > Enable Access to Storage.\n 2. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
                     " to view a video on how to format this file?");
 
             alert.setNegativeButton("No", null);
@@ -91,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     running = false;
                     //this is what happens when YES is clicked
-                    startActivity(new Intent(MainActivity.this,AboutPage.class));
+                    startActivity(new Intent(MainActivity.this, AboutPage.class));
 
                 }
             });
@@ -99,15 +93,14 @@ public class MainActivity extends AppCompatActivity {
             alert.show();
 
             //incremented so it doenst show every time
-            numberOfStarts ++;
+            numberOfStarts++;
 
 
         }//end running
 
 
-
         SharedPreferences.Editor ed = sp.edit();
-        ed.putInt(STARTS,numberOfStarts);
+        ed.putInt(STARTS, numberOfStarts);
         ed.commit();
 
 
@@ -116,26 +109,24 @@ public class MainActivity extends AppCompatActivity {
         MyNotesActivity.taskList = db.getTasks();
 
 
-
         //switching to timetable screen and activity
         timetableBtn = (Button) findViewById(R.id.goToTimetable);
 
-        timetableBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent i = new Intent(view.getContext(),PopulateTimetable.class);
+        timetableBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), PopulateTimetable.class);
 
                 //checks if the file is in the directory before opening up timetable intent
                 String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
                 File fileCheck = new File(filePath);
-                if(fileCheck.exists()){
+                if (fileCheck.exists()) {
                     startActivity(i);
                 }//end file checker
 
-                else{
+                else {
                     Toast.makeText(MainActivity.this, "Please ensure timetable.txt is in DITTimetableApp directory",
                             Toast.LENGTH_LONG).show();
                 }
-
 
 
             }
@@ -144,9 +135,9 @@ public class MainActivity extends AppCompatActivity {
         //switching to MyNotes screen and activity
         myNotesBtn = (Button) findViewById(R.id.goToMyNotes);
 
-        myNotesBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent i = new Intent(view.getContext(),MyNotesActivity.class);
+        myNotesBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), MyNotesActivity.class);
                 startActivity(i);
             }
         });
@@ -154,9 +145,9 @@ public class MainActivity extends AppCompatActivity {
         //switching to ViewNotes screen and activity
         viewNotesBtn = (Button) findViewById(R.id.goToViewNotes);
 
-        viewNotesBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent i = new Intent(view.getContext(),ViewNotesActivity.class);
+        viewNotesBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), ViewNotesActivity.class);
                 startActivity(i);
             }
         });
@@ -164,13 +155,12 @@ public class MainActivity extends AppCompatActivity {
         //switching to About screen and activity
         aboutBtn = (Button) findViewById(R.id.goToAbout);
 
-        aboutBtn.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                Intent i = new Intent(view.getContext(),AboutPage.class);
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), AboutPage.class);
                 startActivity(i);
             }
         });
-
 
 
     }//end main onCreate

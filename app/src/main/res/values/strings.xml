@@ -11,13 +11,6 @@
     <string name="roomnext">Room Next</string>
     <string name="nownext">\t\tNOW\t\t\t\t\t\t\t\t\t\t\tNEXT</string>
 
-
-    <!--&lt;!&ndash; strings for pop up boxes&ndash;&gt;-->
-    <!--<string name="alert_title"><u> NOTE - TITLE</u></string>-->
-    <!--<string name="alert_message"><u>This will be the description i put in the message</u></string>-->
-    <!--<string name="alert_agree">OK</string>-->
-
-
     <!--Strings for the form-->
     <string name="displayTasks">MY NOTES</string>
     <string name="welcomeMessageForm">Please enter a new Task</string>
