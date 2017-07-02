@@ -41,10 +41,19 @@ public class ViewClassesActivity extends AppCompatActivity {
 //            Log.d("eric", "" + PopulateTimetable.classes.keySet());
 //
 //        }
+
+
         int j = 0;
         for (int i = 8; i < 22; i++) {
 
-            taskTitles[j] = i + ":00  - " + PopulateTimetable.classes.get(i)[0] + " - " + PopulateTimetable.classes.get(i)[1];
+            String s = i + ":00  - " + PopulateTimetable.classes.get(i)[0] + " - " + PopulateTimetable.classes.get(i)[1];
+
+            if(s.contains("_")){
+                s = s.replace('_', ' ');
+            }
+
+            taskTitles[j] = s;
+
             j++;
 
         }//end for
