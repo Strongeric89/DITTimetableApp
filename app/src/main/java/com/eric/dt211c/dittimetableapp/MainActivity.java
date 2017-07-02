@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private Button viewNotesBtn = null;
     private Button myNotesBtn = null;
     private Button aboutBtn = null;
+    private Button classesBtn = null;
     public boolean running = true;
 
     //used to ensure that when the app is launched at least once then the popup dialog box will be
@@ -162,6 +163,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //switching to About screen and activity
+        classesBtn = (Button) findViewById(R.id.goToClasses);
+
+        classesBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), ViewClassesActivity.class);
+
+                if (!PopulateTimetable.classes.isEmpty()) {
+                    startActivity(i);
+                }//end file checker
+
+                else {
+                    Toast.makeText(MainActivity.this, "Please go to Timetable Option First",
+                            Toast.LENGTH_LONG).show();
+                }
+
+                //startActivity(i);
+            }
+        });
 
     }//end main onCreate
 }//end class MainActivity

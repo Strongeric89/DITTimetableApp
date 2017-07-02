@@ -24,10 +24,12 @@
         <activity android:name=".PopulateTimetable" />
         <activity android:name=".MyNotesActivity" />
         <activity android:name=".ViewNotesActivity" />
+        <activity android:name=".ViewClassesActivity" />
         <activity
             android:name=".AboutPage"
             android:label="@string/title_activity_about_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
     </application>
 
 </manifest>

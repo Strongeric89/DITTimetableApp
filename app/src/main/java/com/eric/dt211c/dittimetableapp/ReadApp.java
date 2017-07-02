@@ -25,6 +25,8 @@ public class ReadApp {
     //hash map is used for the key:value pair (time:detail)
     public static HashMap<Integer, String[]> classes = new HashMap<Integer, String[]>();
     public static ArrayList<String> list = new ArrayList<String>();
+    public static String[] classes2 = new String[20];
+
 
     public String filename;
 
@@ -36,14 +38,21 @@ public class ReadApp {
 
     }// end constructor
 
+
     //method to read in file to memory
     public String readFile() throws IOException {
         File file = new File(filename);
         Scanner in = new Scanner(file);
         String line = "";
+        String lines[] = new String [100];
+        int i = 0;
 
         while (in.hasNextLine()) {
+
+
             line += in.nextLine() + "\n";
+            lines[i] = line;
+            i++;
 
         }
 
@@ -109,7 +118,64 @@ public class ReadApp {
 
         }// end switch
 
+
         return classes;
+    }// end getContents
+
+
+    public String[] getContents2() {
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        day = day - 1;
+        // convert the number to a string to return the correct version
+        String dayOfWeek = new Integer(day).toString();
+        switch (day) {
+
+            case 1: {
+                sorter(dayOfWeek);
+
+            }
+            break;
+
+            case 2: {
+                sorter(dayOfWeek);
+
+            }
+            break;
+
+            case 3: {
+                sorter(dayOfWeek);
+
+            }
+            break;
+
+            case 4: {
+                sorter(dayOfWeek);
+
+            }
+            break;
+
+            case 5: {
+                sorter(dayOfWeek);
+
+            }
+            break;
+
+            case 6: {
+                sorter(dayOfWeek);
+
+            }
+            break;
+
+            case 7: {
+                sorter(dayOfWeek);
+
+            }
+            break;
+
+        }// end switch
+
+
+        return classes2;
     }// end getContents
 
 
@@ -127,6 +193,7 @@ public class ReadApp {
             while (in.hasNext()) {
                 line = in.next();
 
+
                 //if the line starts with the day of the week we need read in to the string
                 if (line.startsWith(dayOfWeek)) {
                     // added to arraylist
@@ -140,6 +207,8 @@ public class ReadApp {
 
             for (String s : list) {
                 //each line is iterated and split by a coma
+                //adds the days classes to the list
+
                 values = s.split(",");
                 for (int j = 0; j < values.length; j++) {
                     //because each line is seperated at the coma it creates different strings
@@ -160,5 +229,7 @@ public class ReadApp {
         }
 
     }// end sorter
+
+
 
 }// end class

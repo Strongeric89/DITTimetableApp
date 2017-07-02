@@ -84,9 +84,6 @@ public class PopulateTimetable extends AppCompatActivity {
                     classes = reader.getContents();
                     Log.d("eric", "size of Classes is" + classes.size());
 
-                    //for debugging reasons....
-                    String contentToDisplay = reader.readFile();
-                    Log.d("eric", contentToDisplay);
 
                 }//end try
                 catch (IOException e) {
@@ -439,4 +436,7 @@ public class PopulateTimetable extends AppCompatActivity {
 
     }//end changebackground image
 
+    public String toString(){
+        return "batman";
+    }
 }//end class
