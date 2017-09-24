@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="4">
+    android:weightSum="5">
 
 
     <Button
@@ -49,6 +49,17 @@
         android:textSize="30sp" />
 
     <Button
+        android:id="@+id/goToWebCourses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/orange"
+        android:text="Web Courses"
+        android:textColor="@color/white"
+        android:onClick="onurlClick"
+        android:textSize="30sp" />
+
+    <Button
         android:id="@+id/goToAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,5 +69,8 @@
         android:text="@string/created"
         android:textColor="@color/white"
         android:textSize="10sp" />
+
+
+
 
 </LinearLayout>

@@ -392,6 +392,7 @@ public class PopulateTimetable extends AppCompatActivity {
     //ADDITIONAL FUNCTIONS
     //external url
     public void onurlClick(View view) {
+
         goToUrl("http://www.dit.ie/timetables");
     }
 

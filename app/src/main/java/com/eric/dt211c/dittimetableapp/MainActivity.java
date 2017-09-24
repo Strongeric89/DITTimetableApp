@@ -13,6 +13,7 @@ package com.eric.dt211c.dittimetableapp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Environment;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Button myNotesBtn = null;
     private Button aboutBtn = null;
     private Button classesBtn = null;
+    private Button webCoursesBtn = null;
     public boolean running = true;
 
     //used to ensure that when the app is launched at least once then the popup dialog box will be
@@ -183,5 +185,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //switching to webCourses and activity
+        webCoursesBtn = (Button) findViewById(R.id.goToWebCourses);
+
+        webCoursesBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+
+                goToUrl("https://idp.dit.ie/idp/profile/SAML2/Redirect/SSO");
+
+            }
+        });
+
     }//end main onCreate
+
+    private void goToUrl(String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
+    }
 }//end class MainActivity
