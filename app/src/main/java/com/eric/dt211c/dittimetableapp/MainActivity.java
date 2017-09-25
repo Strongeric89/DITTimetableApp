@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                goToUrl("https://idp.dit.ie/idp/profile/SAML2/Redirect/SSO");
+                goToUrl("http://www.dit.ie/lttc/webcourseslogin/student/");
 
             }
         });
