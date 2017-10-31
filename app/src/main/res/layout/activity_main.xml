@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     android:weightSum="5">
 
 
@@ -12,52 +13,79 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/green"
+        android:background="@color/turq"
+        android:textColor="@color/white"
         android:text="Timetable"
+
         android:textSize="30sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
 
     <Button
         android:id="@+id/goToMyNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/red"
+        android:background="@color/turq"
         android:text="Create Note"
         android:textColor="@color/white"
         android:textSize="30sp"
 
         />
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
+
     <Button
         android:id="@+id/goToViewNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/yellow"
+        android:background="@color/turq"
         android:text="View Notes"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
 
     <Button
         android:id="@+id/goToClasses"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/blue"
+        android:background="@color/turq"
         android:text="View Classes"
         android:textColor="@color/white"
         android:textSize="30sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
 
     <Button
         android:id="@+id/goToWebCourses"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:background="@color/orange"
+        android:background="@color/turq"
         android:text="Web Courses"
         android:textColor="@color/white"
         android:onClick="onurlClick"
         android:textSize="30sp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="@color/white" />
 
     <Button
         android:id="@+id/goToAbout"

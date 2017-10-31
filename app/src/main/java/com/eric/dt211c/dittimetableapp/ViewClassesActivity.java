@@ -33,20 +33,13 @@ public class ViewClassesActivity extends AppCompatActivity {
 
         //go through the structure and get only the string values back
 
-//        Log.d("eric", "size of Classes is" + PopulateTimetable.classes.size());
-//        Log.d("eric", "Classes is empty" + PopulateTimetable.classes.isEmpty());
 
-        //for debugging reasons
-//        for(int i =0; i<PopulateTimetable.classes.size(); i++){
-//            Log.d("eric", "" + PopulateTimetable.classes.keySet());
-//
-//        }
 
 
         int j = 0;
         for (int i = 8; i < 22; i++) {
 
-            String s = i + ":00  - " + PopulateTimetable.classes.get(i)[0] + " - " + PopulateTimetable.classes.get(i)[1];
+            String s = i + ":00  -  " + PopulateTimetable.classes.get(i)[0] + "  -  " + PopulateTimetable.classes.get(i)[1];
 
             if(s.contains("_")){
                 s = s.replace('_', ' ');
@@ -60,9 +53,11 @@ public class ViewClassesActivity extends AppCompatActivity {
 
 
         //setting up arrayAdapter which handles the contents of the ListView
-        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
+        ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_2, android.R.id.text1, taskTitles);
 
         taskListView.setAdapter(adapter);
+
+
 
 
     }//end on create
