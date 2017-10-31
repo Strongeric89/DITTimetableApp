@@ -14,12 +14,15 @@ public class Task {
     private int value;
     private String today;
     private String time;
+    public String image = "note";
 
     //    //date and time constructor
     public Task(String title, String description, String urgencyLevel, String date, String time) {
         this.title = title;
         this.description = description;
         this.urgencyLevel = urgencyLevel;
+
+        this.image = "note";
 
         //getting the first character from the string in order to store its number
         char first = urgencyLevel.charAt(0);

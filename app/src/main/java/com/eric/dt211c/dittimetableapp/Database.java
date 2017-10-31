@@ -81,6 +81,10 @@ public class Database extends SQLiteOpenHelper {
     }//end storeNotes
 
 
+
+
+
+
     //the following method will delete a row from the database, based on the note description.
     //this was decided as some notes may contain the same title
     public void deleteRow(String name) {
@@ -89,6 +93,24 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         String sql = String.format("%s = '%s'", COL_NOTE, name);
         db.delete(TABLE_NAME, sql, null);
+
+    }
+
+    public boolean update(String oldNote,String oldTitle, String oldPriority,Task t1){
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues v = new ContentValues();
+
+        v.put(COL_NOTE, t1.getDescription());
+        v.put(COL_TITLE, t1.getTitle());
+        v.put(COL_PRIORITY, t1.getUrgencyLevel());
+        String args[] ={oldNote};
+        String args2[] ={oldTitle};
+        String args3[] ={oldPriority};
+        db.update(TABLE_NAME, v, COL_NOTE + "= ? ", args );
+        db.update(TABLE_NAME, v, COL_TITLE + "= ? ", args2 );
+        db.update(TABLE_NAME, v, COL_PRIORITY + "= ? ", args3);
+
+        return true;
 
     }
 

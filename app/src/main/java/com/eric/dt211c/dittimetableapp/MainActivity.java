@@ -192,8 +192,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                goToUrl("http://www.dit.ie/lttc/webcourseslogin/student/");
-
+                goToUrl("https://idp.dit.ie/idp/Authn/UserPassword");
             }
         });
 

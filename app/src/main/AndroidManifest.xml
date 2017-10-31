@@ -25,6 +25,7 @@
         <activity android:name=".MyNotesActivity" />
         <activity android:name=".ViewNotesActivity" />
         <activity android:name=".ViewClassesActivity" />
+        <activity android:name=".MyNotesActivityEdit" />
         <activity
             android:name=".AboutPage"
             android:label="@string/title_activity_about_page"
