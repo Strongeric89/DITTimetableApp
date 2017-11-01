@@ -64,6 +64,8 @@ public class MyNotesActivity extends AppCompatActivity {
         int hour = Calendar.getInstance().get(Calendar.HOUR);
         int mins = Calendar.getInstance().get(Calendar.MINUTE);
 
+
+
         String time = hour + ":" + mins;
         String date = day + "/" + (month + 1) + "/" + year;
 

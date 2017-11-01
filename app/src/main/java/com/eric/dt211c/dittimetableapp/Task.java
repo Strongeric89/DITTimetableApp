@@ -29,6 +29,8 @@ public class Task {
         String c = "" + first;
         this.value = Integer.parseInt(c);
 
+
+
         this.today = date;
         this.time = time;
     }

@@ -165,7 +165,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
 
                // alert.setNegativeButton("Edit", null); // will call an intent over to edit
-                alert.setIcon(R.drawable.classroom3);
+                alert.setIcon(R.drawable.classroom4);
                 alert.show();
 
 

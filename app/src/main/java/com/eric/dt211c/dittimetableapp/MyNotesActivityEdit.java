@@ -99,7 +99,7 @@ public class MyNotesActivityEdit extends AppCompatActivity {
 
 
         //a toast to notify user task was created and a counter is displayed
-        Toast.makeText(this, "Note updated: ",
+        Toast.makeText(this, "Note updated ",
                 Toast.LENGTH_LONG).show();
 
 
