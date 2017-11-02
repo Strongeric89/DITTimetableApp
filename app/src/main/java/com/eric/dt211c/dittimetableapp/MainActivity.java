@@ -25,6 +25,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("eric", "failed to create directory");
             }
         }
+
+
+        File file = new File(directory1,"timetable.txt"); // create the file
+        if(!file.exists())
+            try {
+                //file.createNewFile();
+                String testData = fileStructure();;
+                FileOutputStream f = new FileOutputStream(file,false);
+                f.write(testData.getBytes());
+                f.close();
+            } catch (IOException e) {
+                Log.d("eric", "file did not create");
+            }
 
         //popup when the app is launched.
         //Shared preferences will ensure that this is only run on the first 3 times the application is launched
@@ -202,5 +217,21 @@ public class MainActivity extends AppCompatActivity {
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
+    }
+
+    public static String fileStructure(){
+        String s= "";
+
+        for(int i=1;i<=7;i++){
+            for(int j=8; j<=21; j++){
+                s += String.format("%d,%d,Free,Free_class,\n",i,j);
+
+                Log.d("Eric", s);
+
+            }
+        }
+
+
+        return s;
     }
 }//end class MainActivity
