@@ -100,19 +100,25 @@ public class Database extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         ContentValues v = new ContentValues();
 
+
+
         v.put(COL_NOTE, t1.getDescription());
         v.put(COL_TITLE, t1.getTitle());
         v.put(COL_PRIORITY, t1.getUrgencyLevel());
         String args[] ={oldNote};
         String args2[] ={oldTitle};
         String args3[] ={oldPriority};
+
         db.update(TABLE_NAME, v, COL_NOTE + "= ? ", args );
-        db.update(TABLE_NAME, v, COL_TITLE + "= ? ", args2 );
-        db.update(TABLE_NAME, v, COL_PRIORITY + "= ? ", args3);
+        db.update(TABLE_NAME, v, COL_TITLE + "= ? ", args );
+        db.update(TABLE_NAME, v, COL_PRIORITY + "= ? ", args);
+
 
         return true;
 
     }
+
+
 
 
     //retrieving data from database
