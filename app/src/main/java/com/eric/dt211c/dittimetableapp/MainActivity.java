@@ -187,14 +187,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), ViewClassesActivity.class);
 
-                if (!PopulateTimetable.classes.isEmpty()) {
+//                if (!PopulateTimetable.classes.isEmpty()) {
                     startActivity(i);
-                }//end file checker
+//                }//end file checker
 
-                else {
-                    Toast.makeText(MainActivity.this, "Please go to Timetable Option First",
-                            Toast.LENGTH_LONG).show();
-                }
+//                else {
+//                    Toast.makeText(MainActivity.this, "Please go to Timetable Option First",
+//                            Toast.LENGTH_LONG).show();
+//                }
 
                 //startActivity(i);
             }

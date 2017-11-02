@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Calendar;
 import java.util.Scanner;
 
 /*
@@ -58,8 +59,11 @@ public class ViewClassesActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.naviagtion_view);
 
 
-
-        String[] taskTitles = readFile(path,"1");
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        day = day - 1;
+        // convert the number to a string to return the correct version
+        String dayOfWeek = new Integer(day).toString();
+        String[] taskTitles = readFile(path,dayOfWeek);
         for(int i=0;i<taskTitles.length;i++){
 
             String items[] = taskTitles[i].split(",");
