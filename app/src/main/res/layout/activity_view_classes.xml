@@ -1,48 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:orientation="vertical"
-
-    android:weightSum="4">
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/nativeBlue"
-        android:gravity="center"
-        android:text="My Classes"
-        android:textColor="@color/white"
-        android:textSize="50dp"
-        android:textStyle="bold" />
+    android:id="@+id/drawer"
+    android:orientation="vertical">
 
 
-    <ListView
 
-        android:id="@+id/task_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="4"
-        android:clickable="true"
-        android:textAlignment="center"
-        android:textStyle="bold"
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" >
 
 
-        />
+        <ListView
 
-    <TextView
-        android:id="@+id/creator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@color/grey"
-        android:gravity="center"
-        android:padding="10dp"
-        android:text="@string/created"
-        android:textColor="@color/white"
-        android:textSize="10sp" />
+            android:id="@+id/task_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
 
-</LinearLayout>
+
+            />
+
+        <FrameLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:id="@+id/main_container"
+
+            />
+
+
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/naviagtion_view"
+        app:menu="@menu/nav_menu"
+        android:layout_gravity="start"
+        ></android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
+
+
+
+
+
+

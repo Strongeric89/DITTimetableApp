@@ -36,6 +36,9 @@
     <string name="priorityLabel"><b>Priority:</b></string>
     <string name="title_activity_about_page">AboutPage</string>
 
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
 
     <!--String for instructions - about page-->
     <string name="aboutApp">
@@ -63,5 +66,8 @@
 
 <b>\nNOTE:</b>
 \nif you do not have a class a specific hour please enter No_Class and also for the room class room specify No_Class</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
