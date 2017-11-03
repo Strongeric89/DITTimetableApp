@@ -66,13 +66,12 @@
         android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="2dp"
 
-        android:layout_marginRight="2dp"
         android:background="@color/turq"
         android:orientation="vertical"
-        android:weightSum="32">
+        android:weightSum="32"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
 
         <LinearLayout
 
@@ -278,18 +277,16 @@
             android:layout_weight="1" />
 
         <TextView
+
             android:id="@+id/creator"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nextclass"
-            android:layout_marginTop="5dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
             android:background="@color/grey"
             android:gravity="center"
-            android:padding="10dp"
-            android:layout_margin="0dp"
+            android:layout_below="@+id/naviagtion_view"
             android:text="@string/created"
             android:textColor="@color/white"
-
             android:textSize="10sp" />
 
 

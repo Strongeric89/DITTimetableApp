@@ -40,34 +40,5 @@
     <string name="close">Close</string>
 
 
-    <!--String for instructions - about page-->
-    <string name="aboutApp">
-        INSTRUCTIONS FOR POPULATING THE APP\n
-\n
-\nStep 1.
-        \nGo to directory structure DITTimetableApp on your android device after app has been installed
-
-\nStep 2.
-\nCreate a text file called timetable.txt or download the template at <b>https://goo.gl/XTVoTp</b>
-
-\n<b>Step 3.</b>
-        \nNext read the instructions below on how to format your classes. This is manually entered in the syntax of the following :
-
-\n1,hh,module,class_room,
-\nKeep in mind the following
-\n1. COMA , all fields must be separated by a coma
-\n2. Underscore _ for words such as web development ensure to leave no white space and use the underscore like so web_development
-\n3. No full stops or any other punctuation.
-\nIt is important to follow these structure rules for <b>mytimetable.txt</b> file or else your timetable will not load. I have also included a template to use so you can just edit the fields to match your timetable.
-
-\nEXAMPLE ENTRY:
-\n1,9,free,no_class,
-\n1,10,networking,Annex_3022,
-
-<b>\nNOTE:</b>
-\nif you do not have a class a specific hour please enter No_Class and also for the room class room specify No_Class</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

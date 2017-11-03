@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -66,7 +67,15 @@ public class ViewClassesActivity extends AppCompatActivity {
         String[] taskTitles = readFile(path,dayOfWeek);
         for(int i=0;i<taskTitles.length;i++){
 
+
+                if(taskTitles[i].contains("_")){
+                    taskTitles[i] = taskTitles[i].replace("_", " ");
+
+            }
+
+
             String items[] = taskTitles[i].split(",");
+
 
 
             String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
@@ -76,7 +85,7 @@ public class ViewClassesActivity extends AppCompatActivity {
 
 
 
-        //drawerLayout.openDrawer(Gravity.LEFT);
+        drawerLayout.openDrawer(Gravity.LEFT);
 
        adapterMain = new ArrayAdapter<String>(ViewClassesActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);//
         taskListViewMain.setAdapter(adapterMain);
@@ -99,6 +108,11 @@ public class ViewClassesActivity extends AppCompatActivity {
 
                         String[] taskTitles = readFile(path,"1");
                         for(int i=0;i<taskTitles.length;i++){
+
+                            if(taskTitles[i].contains("_")){
+                                taskTitles[i] = taskTitles[i].replace("_", " ");
+
+                            }
 
                             String items[] = taskTitles[i].split(",");
 
@@ -124,6 +138,11 @@ public class ViewClassesActivity extends AppCompatActivity {
 
                         String[] taskTitles = readFile(path,"2");
                         for(int i=0;i<taskTitles.length;i++){
+
+                            if(taskTitles[i].contains("_")){
+                                taskTitles[i] = taskTitles[i].replace("_", " ");
+
+                            }
 
                             String items[] = taskTitles[i].split(",");
 
@@ -152,6 +171,11 @@ public class ViewClassesActivity extends AppCompatActivity {
                         String[] taskTitles = readFile(path,"3");
                         for(int i=0;i<taskTitles.length;i++){
 
+                            if(taskTitles[i].contains("_")){
+                                taskTitles[i] = taskTitles[i].replace("_", " ");
+
+                            }
+
                             String items[] = taskTitles[i].split(",");
 
                             String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
@@ -178,6 +202,11 @@ public class ViewClassesActivity extends AppCompatActivity {
 
                         String[] taskTitles = readFile(path,"4");
                         for(int i=0;i<taskTitles.length;i++){
+
+                            if(taskTitles[i].contains("_")){
+                                taskTitles[i] = taskTitles[i].replace("_", " ");
+
+                            }
 
                             String items[] = taskTitles[i].split(",");
 
@@ -206,6 +235,11 @@ public class ViewClassesActivity extends AppCompatActivity {
                         String[] taskTitles = readFile(path,"5");
                         for(int i=0;i<taskTitles.length;i++){
 
+                            if(taskTitles[i].contains("_")){
+                                taskTitles[i] = taskTitles[i].replace("_", " ");
+
+                            }
+
                             String items[] = taskTitles[i].split(",");
 
                             String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
@@ -233,6 +267,11 @@ public class ViewClassesActivity extends AppCompatActivity {
                         String[] taskTitles = readFile(path,"6");
                         for(int i=0;i<taskTitles.length;i++){
 
+                            if(taskTitles[i].contains("_")){
+                                taskTitles[i] = taskTitles[i].replace("_", " ");
+
+                            }
+
                             String items[] = taskTitles[i].split(",");
 
                             String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
@@ -259,6 +298,11 @@ public class ViewClassesActivity extends AppCompatActivity {
 
                         String[] taskTitles = readFile(path,"7");
                         for(int i=0;i<taskTitles.length;i++){
+
+                            if(taskTitles[i].contains("_")){
+                                taskTitles[i] = taskTitles[i].replace("_", " ");
+
+                            }
 
                             String items[] = taskTitles[i].split(",");
 

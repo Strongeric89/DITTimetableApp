@@ -5,26 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="4">
+    >
 
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_weight="3.69"
-
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:text="@string/aboutApp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-
-        android:textStyle="bold" />
 
     <Button
         android:id="@+id/click_url"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="235dp"
         android:layout_above="@+id/click_main"
         android:background="@color/turq"
         android:onClick="onurlClick"
@@ -33,6 +20,33 @@
         android:textColor="@color/white"
 
         />
+
+    <ListView
+
+        android:id="@+id/task_list_about"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAlignment="center"
+        android:textStyle="bold"
+
+
+        />
+
+
+
+
+    <TextView
+
+        android:id="@+id/creator"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey"
+        android:gravity="center"
+        android:layout_below="@+id/naviagtion_view"
+        android:text="@string/created"
+        android:textColor="@color/white"
+        android:textSize="10sp" />
 
 
 </LinearLayout>

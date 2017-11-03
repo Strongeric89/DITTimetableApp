@@ -88,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
             AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
 
-            alert.setTitle("Welcome to My next Class App");
+            alert.setTitle("Welcome to My Next Class App");
 
-            alert.setMessage("1. Go To Settings > Apps > My Next Class > Permissions > Enable Access to Storage.\n 2. Please ensure that you have put your txt file in DITTimetableApp directory. Would you like" +
+            alert.setMessage("1. Go To Settings > Apps > My Next Class > Permissions > Enable Access to Storage.\n 2. Customize your Schedule. Would you like" +
                     " to view a video on how to format this file?");
 
             alert.setNegativeButton("No", null);
