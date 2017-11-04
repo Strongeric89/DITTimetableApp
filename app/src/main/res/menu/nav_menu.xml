@@ -3,22 +3,53 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:apps="http://schemas.android.com/tools">
 
-
+    <group android:id="@+id/nav_open_account_group1"
+        android:checkableBehavior="single">
 
     <item
         android:id="@+id/monday"
         android:title="Monday"></item>
+
+        </group>
+
+    <group android:id="@+id/nav_open_account_group2"
+        android:checkableBehavior="single">
     <item android:id="@+id/tuesday"
     android:title="Tuesday"></item>
+    </group>
+
+    <group android:id="@+id/nav_open_account_group3"
+        android:checkableBehavior="single">
     <item android:id="@+id/wednesday"
         android:title="Wednesday"></item>
+    </group>
+    <group android:id="@+id/nav_open_account_group4"
+        android:checkableBehavior="single">
     <item android:id="@+id/thursday"
         android:title="Thursday"></item>
+
+    </group>
+
+    <group android:id="@+id/nav_open_account_group5"
+        android:checkableBehavior="single">
     <item android:id="@+id/friday"
         android:title="Friday"></item>
+    </group>
+
+    <group android:id="@+id/nav_open_account_group6"
+        android:checkableBehavior="single">
     <item android:id="@+id/saturday"
         android:title="Saturday"></item>
+
+    </group>
+
+    <group android:id="@+id/nav_open_account_group7"
+        android:checkableBehavior="single">
     <item android:id="@+id/sunday"
         android:title="Sunday"></item>
+
+    </group>
+
+
 
 </menu>
