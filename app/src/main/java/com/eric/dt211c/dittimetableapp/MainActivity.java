@@ -40,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
     private Button classesBtn = null;
     private Button webCoursesBtn = null;
     public boolean running = true;
-    //private File fileCheck= null;
+
+    public static String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
+    public static File fileCheck = new File(filePath);
+
+
 
     //used to ensure that when the app is launched at least once then the popup dialog box will be
     //incremented so it doesnt pop up every time. note using shared preferences
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         int number = 0;
         numberOfStarts = sp.getInt(STARTS, number);
 
-        if (numberOfStarts < 1) {
+        if (numberOfStarts < 2) {
 
             AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
 
@@ -136,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(view.getContext(), PopulateTimetable.class);
 
                 //checks if the file is in the directory before opening up timetable intent
-                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
-                File fileCheck = new File(filePath);
+               // String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
+                //File fileCheck = new File(filePath);
                 if (fileCheck.exists()) {
                     startActivity(i);
                 }//end file checker
@@ -188,8 +192,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), ViewClassesActivity.class);
 
-                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
-                File fileCheck = new File(filePath);
+//                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
+//                File fileCheck = new File(filePath);
                 if (fileCheck.exists()) {
                     startActivity(i);
                 }//end file checker
@@ -208,7 +212,7 @@ public class MainActivity extends AppCompatActivity {
 //                            Toast.LENGTH_LONG).show();
 //                }
 
-                //startActivity(i);
+               // startActivity(i);
             }
         });
 
@@ -219,7 +223,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                goToUrl("https://dit-bb.blackboard.com/webapps/bb-auth-provider-shibboleth-BBLEARN/execute/shibbolethLogin?returnUrl=https%3A//dit-bb.blackboard.com/webapps/portal/frameset.jsp&authProviderId=_102_1");
+                goToUrl("https://dit-bb.blackboard.com/webapps/bb-auth-provider-shibboleth-BBLEARN/execute/shibbolethLogin?returnUrl=https%3A//dit-bb.blackboard.com/webapps/portal/frameset.jsp&authProviderId=_102_1d");
             }
         });
 
