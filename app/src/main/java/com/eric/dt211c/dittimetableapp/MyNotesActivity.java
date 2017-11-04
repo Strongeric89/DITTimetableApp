@@ -63,10 +63,12 @@ public class MyNotesActivity extends AppCompatActivity {
         int year = Calendar.getInstance().get(Calendar.YEAR);
         int hour = Calendar.getInstance().get(Calendar.HOUR);
         int mins = Calendar.getInstance().get(Calendar.MINUTE);
+        int sec = Calendar.getInstance().get(Calendar.SECOND);
 
 
 
-        String time = hour + ":" + mins;
+
+        String time = hour + ":" + mins + ":" + sec;
         String date = day + "/" + (month + 1) + "/" + year;
 
         // creating task

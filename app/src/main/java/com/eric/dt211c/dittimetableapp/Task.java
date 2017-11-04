@@ -30,13 +30,6 @@ public class Task {
         String c = "" + first;
         this.value = Integer.parseInt(c);
 
-        Calendar now = Calendar.getInstance();
-        int hour = now.get(Calendar.HOUR_OF_DAY);
-        int min = now.get(Calendar.MINUTE);
-        int sec = now.get(Calendar.SECOND);
-
-        time =  hour + ":" + min + ":" + sec;
-
 
         this.today = date;
         this.time = time;
