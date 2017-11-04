@@ -53,7 +53,7 @@ public class NoteAdapter extends ArrayAdapter<Task> {
         titleView.setText(task.getTitle());
         descView.setText(task.getDescription());
         priorityView.setText(task.getUrgencyLevel());
-        createdView.setText(task.getDate() + " : " + task.getTime());
+        createdView.setText(task.getDate() + " - " + task.getTime());
 
         int resId = mContext.getResources().getIdentifier(task.image,"drawable", mContext.getPackageName());
         imageView.setImageResource(resId);

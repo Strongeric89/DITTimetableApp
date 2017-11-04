@@ -1,6 +1,7 @@
 package com.eric.dt211c.dittimetableapp;
 
 
+import java.util.Calendar;
 /**
  * Created by Eric on 19/03/2017.
  * This is the class for a task including the fields of
@@ -29,6 +30,12 @@ public class Task {
         String c = "" + first;
         this.value = Integer.parseInt(c);
 
+        Calendar now = Calendar.getInstance();
+        int hour = now.get(Calendar.HOUR_OF_DAY);
+        int min = now.get(Calendar.MINUTE);
+        int sec = now.get(Calendar.SECOND);
+
+        time =  hour + ":" + min + ":" + sec;
 
 
         this.today = date;
@@ -50,6 +57,9 @@ public class Task {
     }
 
     public String getTime() {
+
+
+
 
 
         return this.time;
