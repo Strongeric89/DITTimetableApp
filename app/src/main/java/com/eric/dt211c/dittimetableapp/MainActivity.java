@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                goToUrl("https://idp.dit.ie/idp/Authn/UserPassword");
+                goToUrl("https://dit-bb.blackboard.com/webapps/bb-auth-provider-shibboleth-BBLEARN/execute/shibbolethLogin?returnUrl=https%3A//dit-bb.blackboard.com/webapps/portal/frameset.jsp&authProviderId=_102_1");
             }
         });
 

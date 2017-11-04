@@ -144,7 +144,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle(" Tuesdays Classes");
+                        getSupportActionBar().setTitle(" Tuesday Classes");
                         item.setChecked(true);
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -175,7 +175,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle(" Wednesdays Classes");
+                        getSupportActionBar().setTitle(" Wednesday Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -207,7 +207,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                        // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle(" Thursdays Classes");
+                        getSupportActionBar().setTitle(" Thursday Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -239,7 +239,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle(" Fridays Classes");
+                        getSupportActionBar().setTitle(" Friday Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -271,7 +271,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                        // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle(" Saturdays Classes");
+                        getSupportActionBar().setTitle(" Saturday Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -296,14 +296,13 @@ public class ViewClassesActivity extends AppCompatActivity {
                         ArrayAdapter<String> adapter6 = new ArrayAdapter<String>(ViewClassesActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
                         taskListView.setAdapter(adapter6);
 
-
                     }break;
 
                     case R.id.sunday:{
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle(" Sundays Classes");
+                        getSupportActionBar().setTitle(" Sunday Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
