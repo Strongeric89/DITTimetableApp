@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             });
-            alert.setIcon(R.drawable.clock1);
+            alert.setIcon(R.drawable.clock2);
             alert.show();
 
             //incremented so it doenst show every time
