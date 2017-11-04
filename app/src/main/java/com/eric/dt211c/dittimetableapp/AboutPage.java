@@ -31,15 +31,21 @@ public class AboutPage extends AppCompatActivity {
 
 
         //list adapter
-        String about[] = { "STEP 1\nGo to Settings>App>MY NEXT CLASS>Permissions> Allow Access to Storage.",
-                "STEP 2\nLocate on your internal storage, DITTimetableApp>timetable.txt. Open the file and edit your schedule.",
-                "STEP 3\ninstructions to format the timetable.txt\n" +
+        String about[] = { "STEP 1\n\nGo to Settings>App>MY NEXT CLASS>Permissions> Allow Access to Storage.\n",
+                "STEP 2\n\nLocate on your internal storage, DITTimetableApp>timetable.txt. Open the file and edit your schedule.\n",
+                "STEP 3\n\nInstructions to format the timetable.txt\n" +
                         "\n1. COMA , all fields must be separated by a coma\n" +
                         "\n2. Underscore _ for words such as web development ensure to leave no white space and use the underscore like so web_development\n" +
-                        "\n3. No full stops or any other punctuation.\n" +
+                        "\n3. No full stops, spaces or any other punctuation.\n" +
                         "\nIt is important to follow these structure rules for timetable.txt file.Included is a template to use so you can just edit the fields to match your timetable.\n",
                         "SAMPLE ENTRY:\n1,9,free,no_class,\n" +
-                                "\nif you do not have a class a specific hour please enter No_Class and also for the room class room specify No_Class</string>\n"};
+                                "\nIf you do not have a class a specific hour please enter No_Class and also for the room class room specify No_Class\n",
+                        "Disclaimer\n\nThank you for downloading this app. It is my first app and hope it has some use. Please forgive any mistakes and email me if you find any.\n",
+
+                "About this App\n\nI made this app as I always found myself between classes having to zoom in on a screenshot of my timetable. It can be a pain " +
+                        "so I thought id develop a usefull app that within a click of a button you can find out where you are supposed to be. The app is controlled by the student or lecturer." +
+                        "You put in your schedule via the timetable.txt document once a year and then change it the following year.\n\n"
+        };
 
 
 
