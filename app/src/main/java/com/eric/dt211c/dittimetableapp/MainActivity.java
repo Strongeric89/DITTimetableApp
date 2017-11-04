@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private Button classesBtn = null;
     private Button webCoursesBtn = null;
     public boolean running = true;
+    //private File fileCheck= null;
 
     //used to ensure that when the app is launched at least once then the popup dialog box will be
     //incremented so it doesnt pop up every time. note using shared preferences
@@ -142,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
                 }//end file checker
 
                 else {
-                    Toast.makeText(MainActivity.this, "Please ensure timetable.txt is in DITTimetableApp directory",
+                    Toast.makeText(MainActivity.this, "Please ensure settings>apps>MY NEXT CLASS> Permissions > Storage > ON has been enabled",
                             Toast.LENGTH_LONG).show();
                 }
 
@@ -187,8 +188,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), ViewClassesActivity.class);
 
-//                if (!PopulateTimetable.classes.isEmpty()) {
+                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
+                File fileCheck = new File(filePath);
+                if (fileCheck.exists()) {
                     startActivity(i);
+                }//end file checker
+
+                else {
+                    Toast.makeText(MainActivity.this, "Please ensure settings>apps>MY NEXT CLASS> Permissions > Storage > ON has been enabled",
+                            Toast.LENGTH_LONG).show();
+                }
+
+//                if (!PopulateTimetable.classes.isEmpty()) {
+                    //startActivity(i);
 //                }//end file checker
 
 //                else {

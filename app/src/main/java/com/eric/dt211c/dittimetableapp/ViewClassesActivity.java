@@ -5,8 +5,10 @@ import android.os.Environment;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.drawable.DrawerArrowDrawable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -30,6 +32,7 @@ public class ViewClassesActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
+    private ActionBar actionBar;
     private FragmentTransaction fragmentTransaction;
     public NavigationView navigationView;
 
@@ -45,9 +48,20 @@ public class ViewClassesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_classes);
         taskListViewMain = (ListView) findViewById(R.id.task_list);
+
+        //icon
+//        actionBar = (ActionBar) getSupportActionBar();
+//        actionBar.setDisplayShowHomeEnabled(true);
+//        actionBar.setIcon(R.drawable.ic_menu_black_24dp);
+//
+
+
+
+
         //nav drawer
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
+
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
@@ -56,7 +70,7 @@ public class ViewClassesActivity extends AppCompatActivity {
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.main_container, new MondayFragment());
         fragmentTransaction.commit();
-        getSupportActionBar().setTitle("Today's Classes");
+        getSupportActionBar().setTitle(" Today's Classes");
         navigationView = (NavigationView) findViewById(R.id.naviagtion_view);
 
 
@@ -99,7 +113,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                     case R.id.monday:{
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Monday Classes");
+                        getSupportActionBar().setTitle(" Monday Classes");
                         item.setChecked(true);
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -130,7 +144,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Tuesdays Classes");
+                        getSupportActionBar().setTitle(" Tuesdays Classes");
                         item.setChecked(true);
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -161,7 +175,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Wednesdays Classes");
+                        getSupportActionBar().setTitle(" Wednesdays Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -193,7 +207,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                        // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Thursdays Classes");
+                        getSupportActionBar().setTitle(" Thursdays Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -225,7 +239,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Fridays Classes");
+                        getSupportActionBar().setTitle(" Fridays Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -257,7 +271,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                        // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Saturdays Classes");
+                        getSupportActionBar().setTitle(" Saturdays Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -289,7 +303,7 @@ public class ViewClassesActivity extends AppCompatActivity {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Sundays Classes");
+                        getSupportActionBar().setTitle(" Sundays Classes");
                         item.setChecked(true);
 
                         titleView = (TextView) findViewById(R.id.titleDay);
@@ -338,6 +352,7 @@ public class ViewClassesActivity extends AppCompatActivity {
     }//end on create
 
     public boolean onOptionsItemSelected(MenuItem menuitem){
+
 
         if(toggle.onOptionsItemSelected(menuitem)){
             return true;

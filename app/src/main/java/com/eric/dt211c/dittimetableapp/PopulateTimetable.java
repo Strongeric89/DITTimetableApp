@@ -109,8 +109,18 @@ public class PopulateTimetable extends AppCompatActivity {
                 int hour = today.getHours();
                 int min = today.getMinutes();
 
-                nowDisplay = "" + hour + ".00";
-                nextDisplay = "" + (hour + 1) + ".00";
+
+
+                nowDisplay = "" + hour + ":00";
+                nextDisplay = "" + (hour + 1) + ":00"; // possible bug 24:00
+
+                if(nowDisplay.equals("24:00")){
+                    nowDisplay = "00:00";
+                }
+
+                if(nextDisplay.equals("24:00")){
+                    nextDisplay = "00:00";
+                }
                 day = day - 1;
 
                 switch (day) {

@@ -8,6 +8,14 @@
     android:id="@+id/drawer"
     android:orientation="vertical">
 
+    <!--&lt;!&ndash;icon&ndash;&gt;-->
+    <!--<item-->
+        <!--android:id="@+id/menu_icon"-->
+        <!--android:icon="@drawable/ic_menu_black_24dp"-->
+        <!--android:title=""-->
+        <!--apps:showAsAction="always"-->
+        <!--/>-->
+
 
 
     <LinearLayout
