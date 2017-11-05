@@ -50,10 +50,10 @@ public class ViewClassesActivity extends AppCompatActivity {
         taskListViewMain = (ListView) findViewById(R.id.task_list);
 
         //icon
-//        actionBar = (ActionBar) getSupportActionBar();
-//        actionBar.setDisplayShowHomeEnabled(true);
-//        actionBar.setIcon(R.drawable.ic_menu_black_24dp);
-//
+        actionBar = (ActionBar) getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.ic_menu_black_24dp);
+
 
 
 

@@ -7,8 +7,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 /*
 * The following class was created by eric strong
@@ -65,7 +67,11 @@ public class MyNotesActivity extends AppCompatActivity {
         int mins = Calendar.getInstance().get(Calendar.MINUTE);
         int sec = Calendar.getInstance().get(Calendar.SECOND);
 
-        String time = hour + ":" + mins + ":" + sec;
+        SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss");
+        Date now = new Date();
+        String time = sdfDate.format(now);
+
+        //String time = hour + ":" + mins + ":" + sec;
         String date = day + "/" + (month + 1) + "/" + year;
 
         // creating task
