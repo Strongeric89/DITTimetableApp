@@ -227,6 +227,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        //switching to exam papers
+        webCoursesBtn = (Button) findViewById(R.id.goToExamPapers);
+
+        webCoursesBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                Toast.makeText(MainActivity.this, "login: Student Password: ThunderRoad",
+                        Toast.LENGTH_LONG).show();
+                goToUrl("http://student.dit.ie/exampapers/KT/2017_College_of_Science/");
+            }
+        });
+
     }//end main onCreate
 
     private void goToUrl(String url) {
