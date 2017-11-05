@@ -78,7 +78,21 @@ public class ViewClassesActivity extends AppCompatActivity {
         day = day - 1;
         // convert the number to a string to return the correct version
         String dayOfWeek = new Integer(day).toString();
+
+        Log.d("Eric", "day of week" + dayOfWeek);
+
+        if(dayOfWeek.equals("0")){
+            dayOfWeek = "7";
+            Log.d("Eric", "day of week" + dayOfWeek);
+        }
+
+
         String[] taskTitles = readFile(path,dayOfWeek);
+
+
+
+        for(int i=0;i<taskTitles.length;i++)
+            Log.d("Eric", "" + taskTitles[i]);
         for(int i=0;i<taskTitles.length;i++){
 
 
