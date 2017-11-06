@@ -21,8 +21,10 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:layout_weight="1">
             <ImageView
+                android:background="@color/turq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="20dp"
@@ -31,6 +33,7 @@
                 android:adjustViewBounds="true"
                 />
             <ImageView
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/frame"
@@ -45,15 +48,19 @@
                 android:layout_marginBottom="10dp"
                 android:background="@color/transparent"
                 android:gravity="bottom|center"
-                android:textColor="@color/turq"
+                android:textColor="@color/white"
                 android:text="Timetable" />
         </FrameLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+
             android:layout_weight="1">
             <ImageView
+
+                android:background="@color/turq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="20dp"
@@ -66,16 +73,17 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/frame"
                 android:layout_marginLeft="6dp"/>
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent"
 
+            <Button
                 android:id="@+id/goToClasses"
-                android:text="View Classes"
-                android:textColor="@color/turq"
-                android:gravity="bottom|center"
+                android:layout_width="match_parent"
+
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="10dp"
                 android:background="@color/transparent"
-                android:layout_marginBottom="10dp"/>
+                android:gravity="bottom|center"
+                android:text="View Classes"
+                android:textColor="@color/white" />
         </FrameLayout>
 
     </LinearLayout>
@@ -97,6 +105,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
+                android:background="@color/turq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="20dp"
@@ -115,7 +124,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:text="Create Note"
-                android:textColor="@color/turq"
+                android:textColor="@color/white"
 
                 android:gravity="bottom|center"
                 android:background="@color/transparent"
@@ -123,10 +132,12 @@
                 android:layout_marginBottom="10dp"/>
         </FrameLayout>
         <FrameLayout
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
+                android:background="@color/turq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="20dp"
@@ -135,6 +146,7 @@
                 android:adjustViewBounds="true"
                 />
             <ImageView
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/frame"
@@ -142,7 +154,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:textColor="@color/turq"
+                android:textColor="@color/white"
                 android:id="@+id/goToViewNotes"
                 android:text="View Notes"
                 android:gravity="bottom|center"
@@ -167,6 +179,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
+                android:background="@color/turq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="20dp"
@@ -185,17 +198,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
                 android:text="Web Courses"
-                android:textColor="@color/turq"
+                android:textColor="@color/white"
                 android:gravity="bottom|center"
                 android:background="@color/transparent"
                 android:id="@+id/goToWebCourses"
                 android:layout_marginBottom="10dp"/>
         </FrameLayout>
         <FrameLayout
+            android:paddingLeft="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
             <ImageView
+                android:background="@color/turq"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="20dp"
@@ -211,7 +226,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
-                android:textColor="@color/turq"
+                android:textColor="@color/white"
                 android:id="@+id/goToExamPapers"
                 android:text="Exam Papers"
                 android:gravity="bottom|center"

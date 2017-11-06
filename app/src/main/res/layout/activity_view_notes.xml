@@ -33,6 +33,9 @@
 
         />
 
+
+
+
     <TextView
 
         android:id="@+id/creator"
@@ -44,4 +47,11 @@
         android:text="@string/created"
         android:textColor="@color/white"
         android:textSize="10sp" />
-</LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+

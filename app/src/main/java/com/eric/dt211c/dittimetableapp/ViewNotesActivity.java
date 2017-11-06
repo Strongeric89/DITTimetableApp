@@ -3,6 +3,7 @@ package com.eric.dt211c.dittimetableapp;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,7 +46,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_notes);
+        setContentView(R.layout.notes2_page_activity); //CHANGED
 
         //creating the link to xml
         ListView taskListView = (ListView) findViewById(R.id.task_list);
@@ -172,6 +173,17 @@ public class ViewNotesActivity extends AppCompatActivity {
 
             }//onItemClick
 
+        });
+
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab2);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), MyNotesActivity.class);
+                startActivity(i);
+
+            }
         });
 
     }//end on create

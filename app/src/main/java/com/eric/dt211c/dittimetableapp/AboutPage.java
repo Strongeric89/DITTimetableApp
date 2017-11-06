@@ -94,7 +94,7 @@ public class AboutPage extends AppCompatActivity {
 
     //the following code will create an intent to the browser to go to the said website
     public void onurlClick(View view) {
-        goToUrl("https://youtu.be/qybF8hj87Dc");
+        goToUrl("https://youtu.be/WJB7E7igK1o");
     }
 
     private void goToUrl(String url) {
