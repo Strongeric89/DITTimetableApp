@@ -15,11 +15,12 @@
 
 
 
+    <!--<color name="turq">#38aac4</color>-->
     <color name="turq">#38aac4</color>
     <color name="nativeBlue">#38c4b3</color>
     <color name="purple">#855e9b</color>
 
-
+    <color name="transparent">#0000</color>
 
 
 

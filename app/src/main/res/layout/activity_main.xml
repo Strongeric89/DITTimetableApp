@@ -4,20 +4,217 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="6"
 
-    android:weightSum="6">
+   >
 
-
-    <Button
-        android:id="@+id/goToTimetable"
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/turq"
-        android:textColor="@color/white"
-        android:text="Timetable"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="2"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/timetable"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:layout_marginRight="6dp"
+                android:adjustViewBounds="true" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Timetable"
 
-        android:textSize="30sp" />
+                android:gravity="bottom|center"
+                android:background="@color/transparent"
+                android:id="@+id/goToTimetable"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:src="@drawable/viewclass"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:layout_marginLeft="6dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+
+                android:id="@+id/goToClasses"
+                android:text="View Classes"
+                android:gravity="bottom|center"
+                android:background="@color/transparent"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/createnote"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:layout_marginRight="6dp"
+
+                android:adjustViewBounds="true" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Create Note"
+
+                android:gravity="bottom|center"
+                android:background="@color/transparent"
+                android:id="@+id/goToMyNotes"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:src="@drawable/viewnote"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:layout_marginLeft="6dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+
+                android:id="@+id/goToViewNotes"
+                android:text="View Notes"
+                android:gravity="bottom|center"
+                android:background="@color/transparent"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/webcourses"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:layout_marginRight="6dp"
+
+                android:adjustViewBounds="true" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:text="Web Courses"
+
+                android:gravity="bottom|center"
+                android:background="@color/transparent"
+                android:id="@+id/goToWebCourses"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"
+                android:src="@drawable/exampapers"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/frame"
+                android:layout_marginLeft="6dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+
+                android:id="@+id/goToExamPapers"
+                android:text="Exam Papers"
+                android:gravity="bottom|center"
+                android:background="@color/transparent"
+                android:layout_marginBottom="10dp"/>
+        </FrameLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="fill_parent"
@@ -25,86 +222,7 @@
         android:background="@color/white" />
 
     <Button
-        android:id="@+id/goToMyNotes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/turq"
-        android:text="Create Note"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-
-        />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/white" />
-
-    <Button
-        android:id="@+id/goToViewNotes"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/turq"
-        android:text="View Notes"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/white" />
-
-    <Button
-        android:id="@+id/goToClasses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/turq"
-        android:text="View Classes"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/white" />
-
-    <Button
-        android:id="@+id/goToWebCourses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/turq"
-        android:text="Web Courses"
-        android:textColor="@color/white"
-        android:onClick="onurlClick"
-        android:textSize="30sp" />
-
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/white" />
-
-    <Button
-        android:id="@+id/goToExamPapers"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/turq"
-        android:text="Exam Papers"
-        android:textColor="@color/white"
-        android:onClick="onurlClick"
-        android:textSize="30sp" />
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/white" />
-
-    <Button
+        android:layout_weight="2"
         android:id="@+id/goToAbout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -114,11 +232,5 @@
         android:text="@string/created"
         android:textColor="@color/white"
         android:textSize="10sp" />
-
-
-
-
-
-
 
 </LinearLayout>

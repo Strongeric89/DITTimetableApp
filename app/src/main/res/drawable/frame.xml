@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--Add this in order to make the borders of a picture not pointy-->
+
+    <solid android:color="#00ffffff" />
+    <padding android:left="6dp"
+        android:top="3dp"
+        android:right="3dp"
+        android:bottom="3dp" />
+    <corners android:radius="12dp" />
+    <stroke android:width="3dp" android:color="#000000" />
+
+</shape>

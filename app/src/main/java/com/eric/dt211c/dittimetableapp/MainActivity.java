@@ -30,8 +30,8 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
-
     //database to be used when the app launches up to populate the arraylist for persistence
+
     private Database db = new Database(this);
     private Button timetableBtn = null;
     private Button viewNotesBtn = null;
@@ -239,6 +239,8 @@ public class MainActivity extends AppCompatActivity {
                 goToUrl("http://student.dit.ie/exampapers/KT/2017_College_of_Science/");
             }
         });
+
+
 
     }//end main onCreate
 
