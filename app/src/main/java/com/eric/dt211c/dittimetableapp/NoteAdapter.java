@@ -2,6 +2,8 @@ package com.eric.dt211c.dittimetableapp;
 
 /**
  * Created by eric on 31/10/2017.
+ * This Adapter is used with the tasks taken from the sqlliteDB, along with an imageview. and displayed in the ViewNotesActivity
+ *
  */
 
 import android.content.Context;
@@ -11,12 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-
-
-/**
- * Created by eric on 31/10/2017.
- */
 
 public class NoteAdapter extends ArrayAdapter<Task> {
     Context mContext;

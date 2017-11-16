@@ -24,23 +24,26 @@ public class AboutPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //oncreate is invoked when the apps activity is launched
+
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about_page_activity);
+        setContentView(R.layout.about_page_activity); //set the view for this activity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
-        //list adapter
-        String about[] = { "STEP 1\n\nGo to Settings>App>MY NEXT CLASS>Permissions> Allow Access to Storage.\n",
+        //array of strings for the list adapter
+        String about[] = {"STEP 1\n\nGo to Settings>App>MY NEXT CLASS>Permissions> Allow Access to Storage.\n",
                 "STEP 2\n\nLocate on your internal storage, DITTimetableApp>timetable.txt. Open the file and edit your schedule.\n",
                 "STEP 3\n\nInstructions to format the timetable.txt\n" +
                         "\n1. COMA , all fields must be separated by a coma\n" +
                         "\n2. Underscore _ for words such as web development ensure to leave no white space and use the underscore like so web_development\n" +
                         "\n3. No full stops, spaces or any other punctuation.\n" +
                         "\nIt is important to follow these structure rules for timetable.txt file.Included is a template to use so you can just edit the fields to match your timetable.\n",
-                        "SAMPLE ENTRY:\n1,9,free,no_class,\n" +
-                                "\nIf you do not have a class a specific hour please enter No_Class and also for the room class room specify No_Class\n",
-                        "Disclaimer\n\nThank you for downloading this app. It is my first app and hope it has some use. Please forgive any mistakes and email me if you find any.\n",
+                "SAMPLE ENTRY:\n1,9,free,no_class,\n" +
+                        "\nIf you do not have a class a specific hour please enter No_Class and also for the room class room specify No_Class\n",
+                "Disclaimer\n\nThank you for downloading this app. It is my first app and hope it has some use. Please forgive any mistakes and email me if you find any.\n",
 
                 "About this App\n\nI made this app as I always found myself between classes having to zoom in on a screenshot of my timetable. It can be a pain " +
                         "so I thought id develop a usefull app that within a click of a button you can find out where you are supposed to be. The app is controlled by the student or lecturer." +
@@ -48,16 +51,14 @@ public class AboutPage extends AppCompatActivity {
         };
 
 
+        ListView taskListView = (ListView) findViewById(R.id.task_list_about); // find the listview by id
 
-        ListView taskListView = (ListView) findViewById(R.id.task_list_about);
-
-        //array of my favorite movies
+        //array of strings defined above set to the adapter
         ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, about);
 
         taskListView.setAdapter(adapter);
 
-
-
+        //floating widget for email icon
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +74,7 @@ public class AboutPage extends AppCompatActivity {
 
     //The following code will create an intent to create an email.
     public void sendContact() {
+        //when the icon is clicked an email activity will launch autofilling in the following fields
         String[] targetEmail = new String[]{"strong.erik@gmail.com"};
         String mSubject = "Enquiry about the Timetable App";
         String mMessage = "FAO: Eric,";
@@ -94,10 +96,13 @@ public class AboutPage extends AppCompatActivity {
 
     //the following code will create an intent to the browser to go to the said website
     public void onurlClick(View view) {
+        //when button is clicked (onclick) the goToUrl method is invoked
+
         goToUrl("https://youtu.be/WJB7E7igK1o");
     }
 
     private void goToUrl(String url) {
+        //launchbrowser activity is invoked within an intent
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);

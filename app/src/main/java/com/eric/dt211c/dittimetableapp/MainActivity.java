@@ -2,11 +2,11 @@ package com.eric.dt211c.dittimetableapp;
 
 /*
 *
-* Author: Eric Strong DT211C/2
-* Module: OOP programming
-* Description: The DIT timetable app will read from a file or database and will indicate to the
-* student current class, next class and times of the next class. Some other features will be included
-*
+* Author: Eric Strong DT211C/3
+* Module: Android - Mobile Software Development
+* Description: The DIT timetable app will read from a customisable file into datastructures in order to help the student
+ * find their classrooms. An SQLlite Database will also be used to persist notes, that the student will take during classes. The
+ * will be prioritized by preference. Other activities include Browser and email activites to various useful student tools
 */
 
 
@@ -23,12 +23,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
+
 
     //database to be used when the app launches up to populate the arraylist for persistence
 
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     public static File fileCheck = new File(filePath);
 
 
-
     //used to ensure that when the app is launched at least once then the popup dialog box will be
     //incremented so it doesnt pop up every time. note using shared preferences
     public static int numberOfStarts = 0;
@@ -54,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //oncreate is invoked when the apps activity is launched
 
 
         super.onCreate(savedInstanceState);
@@ -70,13 +70,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-
-        File file = new File(directory1,"timetable.txt"); // create the file
-        if(!file.exists())
+        //This will create the timetable file template within the directory within the phone if not already created
+        File file = new File(directory1, "timetable.txt"); // create the file
+        if (!file.exists())
             try {
                 //file.createNewFile();
-                String testData = fileStructure();;
-                FileOutputStream f = new FileOutputStream(file,false);
+                String testData = fileStructure();
+                ;
+                FileOutputStream f = new FileOutputStream(file, false);
                 f.write(testData.getBytes());
                 f.close();
             } catch (IOException e) {
@@ -126,11 +127,8 @@ public class MainActivity extends AppCompatActivity {
         ed.putInt(STARTS, numberOfStarts);
         ed.commit();
 
-
         //retrieving saved data from database
-        //POSSIBLE BUG
         MyNotesActivity.taskList = db.getTasks();
-
 
         //switching to timetable screen and activity
         timetableBtn = (Button) findViewById(R.id.goToTimetable);
@@ -140,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(view.getContext(), PopulateTimetable.class);
 
                 //checks if the file is in the directory before opening up timetable intent
-               // String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
+                // String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
                 //File fileCheck = new File(filePath);
                 if (fileCheck.exists()) {
                     startActivity(i);
@@ -185,15 +183,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //switching to About screen and activity
+        //switching to view Classes and activity
         classesBtn = (Button) findViewById(R.id.goToClasses);
 
         classesBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), ViewClassesActivity.class);
 
-//                String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/DITTimetableApp/timetable.txt";
-//                File fileCheck = new File(filePath);
+
                 if (fileCheck.exists()) {
                     startActivity(i);
                 }//end file checker
@@ -202,17 +199,6 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please ensure settings>apps>MY NEXT CLASS> Permissions > Storage > ON has been enabled",
                             Toast.LENGTH_LONG).show();
                 }
-
-//                if (!PopulateTimetable.classes.isEmpty()) {
-                    //startActivity(i);
-//                }//end file checker
-
-//                else {
-//                    Toast.makeText(MainActivity.this, "Please go to Timetable Option First",
-//                            Toast.LENGTH_LONG).show();
-//                }
-
-               // startActivity(i);
             }
         });
 
@@ -241,27 +227,31 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }//end main onCreate
 
     private void goToUrl(String url) {
+        //browser activity
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
     }
 
-    public static String fileStructure(){
-        String s= "";
+    public static String fileStructure() {
+        //this function is used to create the file structure in which is auto created for the student. with dummy data
 
-        for(int i=1;i<=7;i++){
-            for(int j=8; j<=21; j++){
-                s += String.format("%d,%d,Free,Free_class,\n",i,j);
+        String s = "";
 
+        for (int i = 1; i <= 7; i++) {
+            for (int j = 8; j <= 21; j++) {
+                s += String.format("%d,%d,Free,Free_class,\n", i, j); // these values are all the same and intended to be edited
+                /*
+                for future project iteration, webscraping could be used here to access the timetable server and scrape the data from the
+                web page
+                 */
                 Log.d("Eric", s);
 
             }
         }
-
 
         return s;
     }

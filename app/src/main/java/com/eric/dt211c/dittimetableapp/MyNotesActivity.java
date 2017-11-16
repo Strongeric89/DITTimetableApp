@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -43,9 +42,10 @@ public class MyNotesActivity extends AppCompatActivity {
     }//end onCreate
 
 
-    //when the submit button is clicked the fields will be taken from the editviews and
-    //plugged into the task constructor. and then stored in the array list.
+
     public void onSubmitPressed(View view) {
+        //when the submit button is clicked the fields will be taken from the editviews and
+        //plugged into the task constructor. and then stored in the array list.
 
         String title = mTitleField.getText().toString();
         String description = mDescField.getText().toString();

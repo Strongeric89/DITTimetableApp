@@ -9,12 +9,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.drawable.DrawerArrowDrawable;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Calendar;
@@ -23,7 +25,10 @@ import java.util.Scanner;
 /*
 
     The following class was created by eric strong
-    This class is used to display the notes(task)
+    This class is used to display the Classes of the day.
+    A nav Drawer is also used to display an overview of classes of the week,
+    in which the user can select todays, mon, tues etc...
+    a fragment is used to fetch the data and display the appropriate classes for the student depending on what day it is
 
  */
 
@@ -32,30 +37,23 @@ public class ViewClassesActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
-    private ActionBar actionBar;
     private FragmentTransaction fragmentTransaction;
     public NavigationView navigationView;
+
 
     //list view
     public static ListView taskListView = null;
     public static TextView titleView = null;
-    public static  ArrayAdapter<String> adapterMain = null;
+    public static ArrayAdapter<String> adapterMain = null;
     private ListView taskListViewMain = null;
     public static String path = Environment.getExternalStorageDirectory() + "/DITTimetableApp/timetable.txt";
 
     protected void onCreate(Bundle savedInstanceState) {
+        //oncreate is invoked when the apps activity is launched
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_classes);
         taskListViewMain = (ListView) findViewById(R.id.task_list);
-
-        //icon
-        actionBar = (ActionBar) getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.drawable.ic_menu_black_24dp);
-
-
-
 
 
         //nav drawer
@@ -63,6 +61,8 @@ public class ViewClassesActivity extends AppCompatActivity {
         toggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
 
         drawerLayout.addDrawerListener(toggle);
+        //drawerLayout.setDrawerListener(toggle);
+
         toggle.syncState();
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
@@ -81,23 +81,22 @@ public class ViewClassesActivity extends AppCompatActivity {
 
         Log.d("Eric", "day of week" + dayOfWeek);
 
-        if(dayOfWeek.equals("0")){
+        if (dayOfWeek.equals("0")) {
             dayOfWeek = "7";
             Log.d("Eric", "day of week" + dayOfWeek);
         }
 
 
-        String[] taskTitles = readFile(path,dayOfWeek);
+        String[] taskTitles = readFile(path, dayOfWeek);
 
 
-
-        for(int i=0;i<taskTitles.length;i++)
+        for (int i = 0; i < taskTitles.length; i++)
             Log.d("Eric", "" + taskTitles[i]);
-        for(int i=0;i<taskTitles.length;i++){
+        for (int i = 0; i < taskTitles.length; i++) {
 
 
-                if(taskTitles[i].contains("_")){
-                    taskTitles[i] = taskTitles[i].replace("_", " ");
+            if (taskTitles[i].contains("_")) {
+                taskTitles[i] = taskTitles[i].replace("_", " ");
 
             }
 
@@ -105,26 +104,24 @@ public class ViewClassesActivity extends AppCompatActivity {
             String items[] = taskTitles[i].split(",");
 
 
-
-            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
             taskTitles[i] = s;
             Log.d("Eric", s);
         }
 
 
-
         drawerLayout.openDrawer(Gravity.LEFT);
 
-       adapterMain = new ArrayAdapter<String>(ViewClassesActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);//
+        adapterMain = new ArrayAdapter<String>(ViewClassesActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);//
         taskListViewMain.setAdapter(adapterMain);
 
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
-            public boolean onNavigationItemSelected(MenuItem item){
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            public boolean onNavigationItemSelected(MenuItem item) {
 
-                switch(item.getItemId()){
+                switch (item.getItemId()) {
 
-                    case R.id.monday:{
+                    case R.id.monday: {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(" Monday Classes");
@@ -134,17 +131,17 @@ public class ViewClassesActivity extends AppCompatActivity {
                         titleView.setText("Monday");
 
 
-                        String[] taskTitles = readFile(path,"1");
-                        for(int i=0;i<taskTitles.length;i++){
+                        String[] taskTitles = readFile(path, "1");
+                        for (int i = 0; i < taskTitles.length; i++) {
 
-                            if(taskTitles[i].contains("_")){
+                            if (taskTitles[i].contains("_")) {
                                 taskTitles[i] = taskTitles[i].replace("_", " ");
 
                             }
 
                             String items[] = taskTitles[i].split(",");
 
-                            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+                            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
                             taskTitles[i] = s;
                             //Log.d("Eric", s);
                         }
@@ -152,9 +149,10 @@ public class ViewClassesActivity extends AppCompatActivity {
                         ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewClassesActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
                         taskListView.setAdapter(adapter);
 
-                    }break;
+                    }
+                    break;
 
-                    case R.id.tuesday:{
+                    case R.id.tuesday: {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
@@ -164,17 +162,17 @@ public class ViewClassesActivity extends AppCompatActivity {
                         titleView = (TextView) findViewById(R.id.titleDay);
                         titleView.setText("Tuesday");
 
-                        String[] taskTitles = readFile(path,"2");
-                        for(int i=0;i<taskTitles.length;i++){
+                        String[] taskTitles = readFile(path, "2");
+                        for (int i = 0; i < taskTitles.length; i++) {
 
-                            if(taskTitles[i].contains("_")){
+                            if (taskTitles[i].contains("_")) {
                                 taskTitles[i] = taskTitles[i].replace("_", " ");
 
                             }
 
                             String items[] = taskTitles[i].split(",");
 
-                            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+                            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
                             taskTitles[i] = s;
                             //Log.d("Eric", s);
                         }
@@ -183,9 +181,10 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView.setAdapter(adapter2);
 
 
-                    }break;
+                    }
+                    break;
 
-                    case R.id.wednesday:{
+                    case R.id.wednesday: {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
@@ -196,17 +195,17 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView.setText("Wednesday");
 
-                        String[] taskTitles = readFile(path,"3");
-                        for(int i=0;i<taskTitles.length;i++){
+                        String[] taskTitles = readFile(path, "3");
+                        for (int i = 0; i < taskTitles.length; i++) {
 
-                            if(taskTitles[i].contains("_")){
+                            if (taskTitles[i].contains("_")) {
                                 taskTitles[i] = taskTitles[i].replace("_", " ");
 
                             }
 
                             String items[] = taskTitles[i].split(",");
 
-                            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+                            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
                             taskTitles[i] = s;
                             //Log.d("Eric", s);
                         }
@@ -215,11 +214,12 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView.setAdapter(adapter3);
 
 
-                    }break;
+                    }
+                    break;
 
-                    case R.id.thursday:{
+                    case R.id.thursday: {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                       // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
+                        // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(" Thursday Classes");
                         item.setChecked(true);
@@ -228,17 +228,17 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView.setText("Thursday");
 
-                        String[] taskTitles = readFile(path,"4");
-                        for(int i=0;i<taskTitles.length;i++){
+                        String[] taskTitles = readFile(path, "4");
+                        for (int i = 0; i < taskTitles.length; i++) {
 
-                            if(taskTitles[i].contains("_")){
+                            if (taskTitles[i].contains("_")) {
                                 taskTitles[i] = taskTitles[i].replace("_", " ");
 
                             }
 
                             String items[] = taskTitles[i].split(",");
 
-                            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+                            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
                             taskTitles[i] = s;
                             //Log.d("Eric", s);
                         }
@@ -247,9 +247,10 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView.setAdapter(adapter4);
 
 
-                    }break;
+                    }
+                    break;
 
-                    case R.id.friday:{
+                    case R.id.friday: {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
@@ -260,17 +261,17 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView.setText("Friday");
 
-                        String[] taskTitles = readFile(path,"5");
-                        for(int i=0;i<taskTitles.length;i++){
+                        String[] taskTitles = readFile(path, "5");
+                        for (int i = 0; i < taskTitles.length; i++) {
 
-                            if(taskTitles[i].contains("_")){
+                            if (taskTitles[i].contains("_")) {
                                 taskTitles[i] = taskTitles[i].replace("_", " ");
 
                             }
 
                             String items[] = taskTitles[i].split(",");
 
-                            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+                            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
                             taskTitles[i] = s;
                             //Log.d("Eric", s);
                         }
@@ -279,11 +280,12 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView.setAdapter(adapter5);
 
 
-                    }break;
+                    }
+                    break;
 
-                    case R.id.saturday:{
+                    case R.id.saturday: {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                       // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
+                        // fragmentTransaction.replace(R.id.main_container, new MondayFragment() );
                         fragmentTransaction.commit();
                         getSupportActionBar().setTitle(" Saturday Classes");
                         item.setChecked(true);
@@ -292,17 +294,17 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView.setText("Saturday");
 
-                        String[] taskTitles = readFile(path,"6");
-                        for(int i=0;i<taskTitles.length;i++){
+                        String[] taskTitles = readFile(path, "6");
+                        for (int i = 0; i < taskTitles.length; i++) {
 
-                            if(taskTitles[i].contains("_")){
+                            if (taskTitles[i].contains("_")) {
                                 taskTitles[i] = taskTitles[i].replace("_", " ");
 
                             }
 
                             String items[] = taskTitles[i].split(",");
 
-                            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+                            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
                             taskTitles[i] = s;
                             //Log.d("Eric", s);
                         }
@@ -310,9 +312,10 @@ public class ViewClassesActivity extends AppCompatActivity {
                         ArrayAdapter<String> adapter6 = new ArrayAdapter<String>(ViewClassesActivity.this, android.R.layout.simple_list_item_1, android.R.id.text1, taskTitles);
                         taskListView.setAdapter(adapter6);
 
-                    }break;
+                    }
+                    break;
 
-                    case R.id.sunday:{
+                    case R.id.sunday: {
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
 
                         fragmentTransaction.commit();
@@ -323,17 +326,17 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView = (ListView) findViewById(R.id.task_list);
                         titleView.setText("Sunday");
 
-                        String[] taskTitles = readFile(path,"7");
-                        for(int i=0;i<taskTitles.length;i++){
+                        String[] taskTitles = readFile(path, "7");
+                        for (int i = 0; i < taskTitles.length; i++) {
 
-                            if(taskTitles[i].contains("_")){
+                            if (taskTitles[i].contains("_")) {
                                 taskTitles[i] = taskTitles[i].replace("_", " ");
 
                             }
 
                             String items[] = taskTitles[i].split(",");
 
-                            String s = items[1] + ":00 - " +  items[2] + " - " + items[3];
+                            String s = items[1] + ":00 - " + items[2] + " - " + items[3];
                             taskTitles[i] = s;
                             //Log.d("Eric", s);
                         }
@@ -342,14 +345,14 @@ public class ViewClassesActivity extends AppCompatActivity {
                         taskListView.setAdapter(adapter7);
 
 
-                    }break;
+                    }
+                    break;
 
-                    default:{
+                    default: {
 
 
-
-
-                    }break;
+                    }
+                    break;
                 }
 
                 return false;
@@ -360,14 +363,12 @@ public class ViewClassesActivity extends AppCompatActivity {
         });
 
 
-
-
     }//end on create
 
-    public boolean onOptionsItemSelected(MenuItem menuitem){
+    public boolean onOptionsItemSelected(MenuItem menuitem) {
 
 
-        if(toggle.onOptionsItemSelected(menuitem)){
+        if (toggle.onOptionsItemSelected(menuitem)) {
             return true;
         }
         return super.onOptionsItemSelected(menuitem);
@@ -375,8 +376,8 @@ public class ViewClassesActivity extends AppCompatActivity {
 
 
     public String[] readFile(String filename, String startswith) {
-        String lines[] = new String [14];
-        try{
+        String lines[] = new String[14];
+        try {
             File file = new File(filename);
             Scanner in = new Scanner(file);
 
@@ -387,7 +388,7 @@ public class ViewClassesActivity extends AppCompatActivity {
 
                 line += in.nextLine() + "\n";
 
-                if(line.startsWith(startswith)){
+                if (line.startsWith(startswith)) {
                     //Log.d("Eric", line );
                     lines[i] = line;
                     i++;
@@ -396,8 +397,8 @@ public class ViewClassesActivity extends AppCompatActivity {
             }
 
             in.close();
-        }catch(FileNotFoundException fne){
-            Log.d("Eric", "file not found" );
+        } catch (FileNotFoundException fne) {
+            Log.d("Eric", "file not found");
         }
 
         return lines;

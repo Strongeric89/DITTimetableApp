@@ -6,16 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * Created on 20/03/2017.
- * This code was generated with the help of Susan McKeevers Database class on SQLLite
- * with the exception of the actual SQL statements and delete statements
+ * Created on 20/10/2017.
+ * This code was is a Database class on SQLLite. using android built in SQLiteOpenHelper
+ * All SQL Statements are taylored to suit the application
  */
 public class Database extends SQLiteOpenHelper {
+    //these are all constant fields needed throughout the database
 
     private static final String TABLE_NAME = "NOTES";
     private static final String COL_ID = "ID";
@@ -27,7 +29,7 @@ public class Database extends SQLiteOpenHelper {
     private static final String COL_DATE = "DATE";
     private static final String COL_TIME = "TIME";
 
-
+    //database constructor
     public Database(Context context) {
         super(context, "mynotes.db", null, 1);
 
@@ -36,29 +38,33 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //oncreate is invoked when the apps activity is launched
 
         //create the database
         String sql = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY,%s TEXT ,%s TEXT, %s TEXT, %s TEXT, %s TEXT);", TABLE_NAME, COL_ID, COL_TITLE, COL_NOTE, COL_PRIORITY, COL_DATE, COL_TIME);
-        Log.d("eric", sql);
 
-        Log.d("eric", "data base has been created");
+        //execute the create table statement
         db.execSQL(sql);
+        Log.d("eric", "data base has been created");
 
     }//end onCreate
 
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+        //this method is auto implemented
 
 
     }//end onUpgrade
 
-    //the following method will iterate through each task in the array list and add its contents
-    //to the database. This is to persist the data
-    public void storeNotes(List<Task> notes) {
-        SQLiteDatabase db = getWritableDatabase();
 
-        db.delete(TABLE_NAME, null, null);
+    public void storeNotes(List<Task> notes) {
+        //the following method will iterate through each task in the array list and add its contents
+        //to the database. This is to persist the data
+
+        SQLiteDatabase db = getWritableDatabase(); //get a writeable database reference
+
+        db.delete(TABLE_NAME, null, null); // delete the old
 
         //the counter is in place to give each task a unique id in the database
         int i = 0;
@@ -77,40 +83,35 @@ public class Database extends SQLiteOpenHelper {
             i++;
 
         }//end for
-        db.close();
+        db.close(); // important to close the database
     }//end storeNotes
 
 
-
-
-
-
-    //the following method will delete a row from the database, based on the note description.
-    //this was decided as some notes may contain the same title
     public void deleteRow(String name) {
+        //the following method will delete a row from the database, based on the note description.
+        //this was decided as some notes may contain the same title
 
-
-        SQLiteDatabase db = getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase(); // get a readable database reference
         String sql = String.format("%s = '%s'", COL_NOTE, name);
-        db.delete(TABLE_NAME, sql, null);
+        db.delete(TABLE_NAME, sql, null); // delete the row
 
     }
 
-    public boolean update(String oldNote,String oldTitle, String oldPriority,Task t1){
+    public boolean update(String oldNote, String oldTitle, String oldPriority, Task t1) {
+        //the following method will update a row within the database, based on the note description.
+        //this was decided as some notes may contain the same title
         SQLiteDatabase db = getReadableDatabase();
         ContentValues v = new ContentValues();
-
-
 
         v.put(COL_NOTE, t1.getDescription());
         v.put(COL_TITLE, t1.getTitle());
         v.put(COL_PRIORITY, t1.getUrgencyLevel());
-        String args[] ={oldNote};
-        String args2[] ={oldTitle};
-        String args3[] ={oldPriority};
+        String args[] = {oldNote};
+        String args2[] = {oldTitle};
+        String args3[] = {oldPriority};
 
-        db.update(TABLE_NAME, v, COL_NOTE + "= ? ", args );
-        db.update(TABLE_NAME, v, COL_TITLE + "= ? ", args );
+        db.update(TABLE_NAME, v, COL_NOTE + "= ? ", args);
+        db.update(TABLE_NAME, v, COL_TITLE + "= ? ", args);
         db.update(TABLE_NAME, v, COL_PRIORITY + "= ? ", args);
 
 
@@ -119,12 +120,9 @@ public class Database extends SQLiteOpenHelper {
     }
 
 
-
-
-    //retrieving data from database
     public ArrayList<Task> getTasks() {
+        //retrieving data from database
         ArrayList<Task> tasks = new ArrayList<Task>();
-
 
         SQLiteDatabase db = getReadableDatabase();
 

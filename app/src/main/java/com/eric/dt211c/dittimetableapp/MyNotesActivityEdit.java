@@ -3,19 +3,17 @@ package com.eric.dt211c.dittimetableapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 
 /*
 * The following class was created by eric strong
-* This page will create a note (task class) that will be added to the arraylist
+* This page will edit or update a note (task class) that will be added to the arraylist
 * The idea is to order them by priority and to persist them for later use.
 * */
 
@@ -37,14 +35,15 @@ public class MyNotesActivityEdit extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //oncreate is invoked when the apps activity is launched
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_notes);
 
 
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
+        Intent intent = getIntent(); //passed over from the intent
+        Bundle bundle = intent.getExtras(); //bundle acts like a key value pair
 
-        String []items = bundle.getStringArray(ViewNotesActivity.TASK_KEY);
+        String[] items = bundle.getStringArray(ViewNotesActivity.TASK_KEY);
 
         //Identifing the Id's from the activity_form xml
         mTitleField = (EditText) findViewById(R.id.TaskNameField2);
@@ -57,7 +56,6 @@ public class MyNotesActivityEdit extends AppCompatActivity {
         oldNote = items[1];
         oldTitle = items[0];
         oldPriority = items[2];
-
 
 
     }//end onCreate
@@ -80,7 +78,7 @@ public class MyNotesActivityEdit extends AppCompatActivity {
             return;
         }// end if
 
-        //get date and time fields
+        //get date and time data for fields
         int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         int month = Calendar.getInstance().get(Calendar.MONTH);
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -95,7 +93,7 @@ public class MyNotesActivityEdit extends AppCompatActivity {
         Task task = new Task(title.toUpperCase(), description, urgency, date, time);
 
         //update db
-        boolean flag = db.update(oldNote, oldTitle, oldPriority,task);
+        boolean flag = db.update(oldNote, oldTitle, oldPriority, task);
 
 
         //a toast to notify user task was created and a counter is displayed
@@ -103,17 +101,15 @@ public class MyNotesActivityEdit extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
 
 
-
         //clear each field for next note
         mTitleField.setText("");
         mDescField.setText("");
         mUgencyField.setSelection(0);
 
-        if(flag == true){
+        if (flag == true) {
             Intent i = new Intent(view.getContext(), MainActivity.class);
             startActivity(i);
         }
-
 
 
     }//end on submit pressed

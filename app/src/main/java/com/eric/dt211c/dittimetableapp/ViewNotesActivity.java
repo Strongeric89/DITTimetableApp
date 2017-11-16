@@ -22,6 +22,8 @@ import java.util.Comparator;
 
     The following class was created by eric strong
     This class is used to display the notes(task)
+    A NoteAdapter is used to display the note with an image view so the user can clearly see what notes have been added and when
+    Also a long click listener is used to remove a task. the phone will vibrate
 
  */
 public class ViewNotesActivity extends AppCompatActivity {
@@ -42,11 +44,10 @@ public class ViewNotesActivity extends AppCompatActivity {
     public static int index = 0;
 
 
-
-
     protected void onCreate(Bundle savedInstanceState) {
+        //oncreate is invoked when the apps activity is launched
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.notes2_page_activity); //CHANGED
+        setContentView(R.layout.notes2_page_activity);
 
         //creating the link to xml
         ListView taskListView = (ListView) findViewById(R.id.task_list);
@@ -89,7 +90,7 @@ public class ViewNotesActivity extends AppCompatActivity {
 
         NoteAdapter adapter = new NoteAdapter(getApplicationContext(), R.layout.row, list);
 
-        if(taskListView != null){
+        if (taskListView != null) {
             taskListView.setAdapter(adapter);
 
         }
@@ -151,9 +152,9 @@ public class ViewNotesActivity extends AppCompatActivity {
                         Intent intent = new Intent(ViewNotesActivity.this, MyNotesActivityEdit.class);
 
                         String urg = urgency1.charAt(0) + "";
-                        String items[] = {info[0],info[1], urg};
+                        String items[] = {info[0], info[1], urg};
                         Bundle bundle = new Bundle();
-                        bundle.putStringArray(TASK_KEY,items);
+                        bundle.putStringArray(TASK_KEY, items);
 
                         intent.putExtras(bundle);
                         Log.d("Eric", "items:" + items[0] + " " + items[1] + " " + items[2]);
@@ -164,11 +165,9 @@ public class ViewNotesActivity extends AppCompatActivity {
                 });
 
 
-
-               // alert.setNegativeButton("Edit", null); // will call an intent over to edit
+                // alert.setNegativeButton("Edit", null); // will call an intent over to edit
                 alert.setIcon(R.drawable.classroom3);
                 alert.show();
-
 
 
             }//onItemClick

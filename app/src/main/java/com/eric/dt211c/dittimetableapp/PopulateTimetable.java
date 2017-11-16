@@ -21,6 +21,8 @@ import java.util.HashMap;
 /*
         The following class was created by eric strong
         The class is used to populate the timetable fields in the app
+        The ReadApp Class is used to retreived data from the file and this class formats the data and puts it into
+        the correct widgets in the timetable activity
 
 
  */
@@ -48,6 +50,7 @@ public class PopulateTimetable extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //oncreate is invoked when the apps activity is launched
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
@@ -110,15 +113,14 @@ public class PopulateTimetable extends AppCompatActivity {
                 int min = today.getMinutes();
 
 
-
                 nowDisplay = "" + hour + ":00";
                 nextDisplay = "" + (hour + 1) + ":00"; // possible bug 24:00
 
-                if(nowDisplay.equals("24:00")){
+                if (nowDisplay.equals("24:00")) {
                     nowDisplay = "00:00";
                 }
 
-                if(nextDisplay.equals("24:00")){
+                if (nextDisplay.equals("24:00")) {
                     nextDisplay = "00:00";
                 }
                 day = day - 1;
@@ -447,7 +449,7 @@ public class PopulateTimetable extends AppCompatActivity {
 
     }//end changebackground image
 
-    public String toString(){
+    public String toString() {
         return "batman";
     }
 }//end class

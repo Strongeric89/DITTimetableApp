@@ -3,7 +3,7 @@ package com.eric.dt211c.dittimetableapp;
 
 /*
     Read app designed by eric strong
-    The following class was created for a java lab.
+    The following class was created for a java lab and later customized to suit my application.
     This class reads in content from the text file and does various file manipulation in order to achieve
     the apps results
 
@@ -44,7 +44,7 @@ public class ReadApp {
         File file = new File(filename);
         Scanner in = new Scanner(file);
         String line = "";
-        String lines[] = new String [100];
+        String lines[] = new String[100];
         int i = 0;
 
         while (in.hasNextLine()) {
@@ -229,7 +229,6 @@ public class ReadApp {
         }
 
     }// end sorter
-
 
 
 }// end class

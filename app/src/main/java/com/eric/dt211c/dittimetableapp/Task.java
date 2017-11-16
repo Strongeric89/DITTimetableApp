@@ -2,8 +2,9 @@ package com.eric.dt211c.dittimetableapp;
 
 
 import java.util.Calendar;
+
 /**
- * Created by Eric on 19/03/2017.
+ * Created by Eric on 19/10/2017.
  * This is the class for a task including the fields of
  * title,description, urgency level and date
  */
@@ -50,9 +51,6 @@ public class Task {
     }
 
     public String getTime() {
-
-
-
 
 
         return this.time;
